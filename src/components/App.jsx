@@ -1,12 +1,12 @@
-import React from "react";
+import { React, useState } from "react";
 import "../styles/index.css";
+import Navbar from "./Navbar";
 
 function App() {
+  const [show, toggleShow] = useState(true);
   return (
     <div className="App">
-      <header className="App-header">
-        <span>Learn React</span>
-      </header>
+      <Navbar />
     </div>
   );
 }

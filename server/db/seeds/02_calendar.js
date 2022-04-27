@@ -3,11 +3,11 @@
  * @returns { Promise<void> } 
  */
 exports.seed = async function(knex) {
-  // Deletes ALL existing entries
-  await knex('table_name').del()
-  await knex('table_name').insert([
-    {id: 1, colName: 'rowValue1'},
-    {id: 2, colName: 'rowValue2'},
-    {id: 3, colName: 'rowValue3'}
+
+  
+  await knex('calendar').insert([
+    {id: 1, userId: 'rowValue1', date: "", events:""},
+    {id: 2, userId: 'rowValue2', date: "", events:""},
+    {id: 3, userId: 'rowValue3', date: "", events:""}
   ]);
 };

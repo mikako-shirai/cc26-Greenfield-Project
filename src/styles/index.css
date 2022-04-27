@@ -22,8 +22,11 @@ code {
 }
 .navbar * {
   margin-bottom: 10px;
+  padding: 10px;
 }
 
 a {
-  background-color: cornflowerblue;
+  color: rgb(91, 101, 115);
+  background-color: rgb(219, 231, 255);
+  text-decoration-line: none;
 }

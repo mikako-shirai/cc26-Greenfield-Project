@@ -2,6 +2,7 @@ import React from "react";
 
 function Search({ params }) {
   //THese params to look for
+  //This is a test
   return (
     <div>
       <form action="">

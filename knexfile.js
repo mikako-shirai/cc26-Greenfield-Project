@@ -6,17 +6,19 @@
 module.exports = {
 
   development: {
-    client: 'sqlite3',
+    client: 'postgresql',
     connection: {
-      filename: './dev.sqlite3'
+      database: "cocoonmorph",
+      user: "postgres",
+      password: null
     }
   },
 
   staging: {
     client: 'postgresql',
     connection: {
-      database: 'my_db',
-      user:     'username',
+      database: 'cocoonmorpho',
+      user: 'username',
       password: 'password'
     },
     pool: {
@@ -31,8 +33,8 @@ module.exports = {
   production: {
     client: 'postgresql',
     connection: {
-      database: 'my_db',
-      user:     'username',
+      database: 'cocoonmorpho',
+      user: 'username',
       password: 'password'
     },
     pool: {

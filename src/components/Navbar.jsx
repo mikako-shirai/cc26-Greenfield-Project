@@ -1,14 +1,18 @@
 import React from "react";
-import Search from "./Searchbtn";
 
 function Navbar() {
   return (
     <div className="navbar">
-      <Search />
-      <a href="calendar">Calendar</a>
-      <a href="docs">Docs</a>
-      <a href="task">Task</a>
-      <a href="event">Events</a>
+      <form action="">
+        <button>Search</button>
+        <input type="text" />
+      </form>
+      <ul>
+        <a href="calendar">Calendar</a>
+        <a href="docs">Docs</a>
+        <a href="task">Task</a>
+        <a href="event">Events</a>
+      </ul>
     </div>
   );
 }

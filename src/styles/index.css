@@ -11,3 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  background-color: beige;
+  width: fit-content;
+  height: 100vh;
+  align-items: center;
+}
+.navbar * {
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+a {
+  color: rgb(91, 101, 115);
+  background-color: rgb(219, 231, 255);
+  text-decoration-line: none;
+}

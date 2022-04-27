@@ -6,9 +6,12 @@ Set Up:
 npm i - install dependencies
 
 
-postgres CREATE TABLE something here
+postgres - 
+CREATE TABLE cocoonmorpho;
+
 npm install knex --save  //finished
-knex migrate:make migration_create_table //later double check
+npm install pg --save
+knex migrate:make migration_create_user_table 
 npx knex migrate:latest
 npx knex seed:make 01_users //make seed stuff rename later
 npx knex seed:make 02_posts

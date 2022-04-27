@@ -1,9 +1,7 @@
 import { React, useState } from "react";
 import "../styles/index.css";
-import Navbar from "./Navbar";
-import Task from "./Task";
-import Document from "./Document";
-import Event from "./Event";
+import Navbar from "./Navbar.jsx";
+import Task from "./Task.jsx";
 
 function App() {
   const [show, toggleShow] = useState(true);

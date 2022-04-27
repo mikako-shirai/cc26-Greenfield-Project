@@ -4,8 +4,8 @@ function Navbar() {
   return (
     <div className="navbar">
       <form action="">
-        <button>Search</button>
         <input type="text" />
+        <button>Search</button>
       </form>
       <ul>
         <a href="calendar">Calendar</a>

@@ -11,3 +11,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.task{}
+
+.formArea{
+  text-align: center;
+  background-color: brown;
+  height: 100px;
+  width: 300px
+
+}
+
+.toDoList{
+  flex-direction:column;
+  background-color: blueviolet;
+  height: 50px;
+  width: 300px
+}

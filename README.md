@@ -18,3 +18,5 @@ npx knex seed:make 00_delete
 npx knex seed:make 01_user 
 npx knex seed:make 02_calendar
 npx knex seed:make 03_user_schedule 
+
+TODOLATER : table for docs, connect to schedule and user 

@@ -25,10 +25,6 @@ code {
   width: 500px;
 }
 
-/* .toDoList {
-  flex-direction: column;
-  background-color: blueviolet;
-} */
 .navbar {
   display: flex;
   flex-direction: column;
@@ -48,6 +44,11 @@ a {
   text-decoration-line: none;
 }
 
+td,
+th {
+  border: 1px solid black;
+}
+
 .react-calendar {
   display: flex;
   flex-direction: column;
@@ -57,10 +58,12 @@ a {
   line-height: 1.125em;
   font-size: 2vh;
 }
+
 .react-calendar__navigation {
   display: flex;
   height: 5vh;
 }
+
 .react-calendar__navigation__label {
   font-weight: bold;
 }
@@ -75,6 +78,7 @@ a {
   border: 1px solid #000000;
   background-color: white;
 }
+
 .react-calendar__tile--active {
   background: #60aaff;
   color: white;

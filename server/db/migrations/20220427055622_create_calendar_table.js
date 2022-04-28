@@ -8,7 +8,11 @@ exports.up = function (knex) {
             table.increments("id").unique().notNullable();
             table.integer("userId"); // gets from user table;
             table.date("date");
-            table.string("events");
+            table.integer("day");
+            table.integer("month");
+            table.integer("year");
+            table.string("dayOfWeek");
+            table.time("time");
         })
 };
 

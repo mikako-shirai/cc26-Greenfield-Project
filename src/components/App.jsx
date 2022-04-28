@@ -5,7 +5,7 @@ import CalendarComponent from "./Calendar.jsx";
 import Document from "./Document";
 import Event from "./Event.jsx";
 import Calendar from "react-calendar/dist/umd/Calendar";
-import Task from "./Task";
+import Task from "./Task.jsx";
 
 function App() {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -28,48 +28,41 @@ function App() {
     setShowEvent(true);
   };
 
-  const [showCalendar, setCalendar] = useState(false);
-  const [showDocument, setDocument] = useState(false);
-  const [showTaskList, setTaskList] = useState(false);
-  const [showEvent, setEvent] = useState(false);
-
-  const displayCalender = () => {
-    setCalendar(true);
-  };
-  const displayDocument = () => {
-    setDocument(true);
-  };
-  const displayTaskList = () => {
-    setTaskList(true);
-  };
-  const displayEvent = () => {
-    setEvent(true);
-  };
-
   return (
     <div className="app">
-
-      <Navbar 
-      displayCalender={displayCalender}
-      displayDocument={displayDocument}
-      displayTask={displayTaskList}
-      displayEvent={displayEvent} 
-      />
-      
-      <div>
-        <CalendarComponent
-          selectedDate={selectedDate}
-          setSelectedDate={setSelectedDate}
-          showTask={showTaskList}
-          setShowTask={setShowTask}
+      <div className="navbar-wrapper">
+        <Navbar
+          displayCalender={displayCalender}
+          displayDocument={displayDocument}
+          displayTask={displayTaskList}
+          displayEvent={displayEvent}
         />
       </div>
 
-      {showCalendar && <Calendar />}
-      {showDocument && <Document />}
-      {showTaskList && <Task />}
-      {showEvent && <Event />}
+      <div className="calendar-wrapper">
+        {showCalendar || showDocument || showTaskList || showEvent || (
+          <CalendarComponent
+            selectedDate={selectedDate}
+            setSelectedDate={setSelectedDate}
+            showTask={showTask}
+            setShowTask={setShowTask}
+          />
+        )}
+      </div>
 
+      <div className="content-wrapper">
+        {showCalendar && (
+          <CalendarComponent
+            selectedDate={selectedDate}
+            setSelectedDate={setSelectedDate}
+            showTask={showTask}
+            setShowTask={setShowTask}
+          />
+        )}
+        {showDocument && <Document />}
+        {showTaskList && <Task />}
+        {showEvent && <Event />}
+      </div>
     </div>
   );
 }

@@ -8,10 +8,11 @@ exports.up = function(knex) {
         table.increments("id").unique().notNullable();
         table.integer("userId"); // gets from user table;
         table.date("date");
+        table.dateTime("time");
         table.string("events");
         table.string("tasks");
-        table.integer("docId"); //from doc table
-        table.string("info");
+        table.integer("docs"); //from doc table? TODO later
+        table.string("comments");
     })
   
 };

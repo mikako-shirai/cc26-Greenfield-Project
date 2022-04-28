@@ -9,24 +9,23 @@ import Task from "./Task";
 
 function App() {
   const [selectedDate, setSelectedDate] = useState(null);
+  const [showCalendar, setShowCalendar] = useState(false);
+  const [showDocument, setShowDocument] = useState(false);
   const [showTask, setShowTask] = useState(false);
-
-  const [showCalendar, setCalendar] = useState(false);
-  const [showDocument, setDocument] = useState(false);
-  const [showTaskList, setTaskList] = useState(false);
-  const [showEvent, setEvent] = useState(false);
+  const [showTaskList, setShowTaskList] = useState(false);
+  const [showEvent, setShowEvent] = useState(false);
 
   const displayCalender = () => {
-    setCalendar(true);
+    setShowCalendar(true);
   };
   const displayDocument = () => {
-    setDocument(true);
+    setShowDocument(true);
   };
   const displayTaskList = () => {
-    setTaskList(true);
+    setShowTaskList(true);
   };
   const displayEvent = () => {
-    setEvent(true);
+    setShowEvent(true);
   };
 
   return (
@@ -35,7 +34,7 @@ function App() {
       <Navbar 
       displayCalender={displayCalender}
       displayDocument={displayDocument}
-      displayTaskList={displayTaskList}
+      displayTask={displayTaskList}
       displayEvent={displayEvent} 
       />
       
@@ -43,7 +42,7 @@ function App() {
         <CalendarComponent
           selectedDate={selectedDate}
           setSelectedDate={setSelectedDate}
-          showTask={showTaskList}
+          showTask={showTask}
           setShowTask={setShowTask}
         />
       </div>

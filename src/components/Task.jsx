@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Task({ date, sub, setShowTask }) {
+function Task({ date, setShowTask }) {
   const [task, setTasklist] = useState("");
   const initialState = [{ task: "here is my task", isCompleted: false }];
   const [todos, setTodos] = useState(initialState);

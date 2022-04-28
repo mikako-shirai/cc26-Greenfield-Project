@@ -12,21 +12,6 @@ code {
     monospace;
 }
 
-
-.formArea{
-  text-align: center;
-  background-color: brown;
-  height: 100px;
-  width: 300px
-
-}
-
-.toDoList{
-  flex-direction:column;
-  background-color: blueviolet;
-  height: 50px;
-  width: 300px
-}
 .navbar {
   display: flex;
   flex-direction: column;
@@ -44,4 +29,9 @@ a {
   color: rgb(97, 111, 129);
   background-color: rgb(219, 231, 255);
   text-decoration-line: none;
+}
+
+
+td, th{
+  border:1px solid black;
 }

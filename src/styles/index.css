@@ -39,8 +39,9 @@ a {
   text-decoration-line: none;
 }
 
-td, th{
-  border:1px solid black;
+td,
+th {
+  border: 1px solid black;
 }
 
 .react-calendar {

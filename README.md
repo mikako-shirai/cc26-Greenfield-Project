@@ -12,6 +12,9 @@ CREATE TABLE cocoonmorpho;
 npm install knex --save  //finished
 npm install pg --save
 knex migrate:make migration_create_user_table 
+knex migrate:make migration_create_user_schedule
 npx knex migrate:latest
-npx knex seed:make 01_users //make seed stuff rename later
-npx knex seed:make 02_posts
+npx knex seed:make 00_delete
+npx knex seed:make 01_user 
+npx knex seed:make 02_calendar
+npx knex seed:make 03_user_schedule 

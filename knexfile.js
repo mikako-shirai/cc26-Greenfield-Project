@@ -8,10 +8,15 @@ module.exports = {
   development: {
     client: 'postgresql',
     connection: {
-      database: "cocoonmorph",
+      database: "cocoonmorpho",
       user: "postgres",
       password: null
-    }
+    },
+    migrations: {
+      directory: "./server/db/migrations",
+    },
+    seeds: { directory: "./server/db/seeds" },
+    
   },
 
   staging: {
@@ -26,8 +31,9 @@ module.exports = {
       max: 10
     },
     migrations: {
-      tableName: 'knex_migrations'
-    }
+      directory: "./server/db/migrations",
+    },
+    seeds: { directory: "./server/db/seeds" },
   },
 
   production: {
@@ -42,8 +48,9 @@ module.exports = {
       max: 10
     },
     migrations: {
-      tableName: 'knex_migrations'
-    }
+      directory: "./server/db/migrations",
+    },
+    seeds: { directory: "./server/db/seeds" },
   }
 
 };
@@ -53,13 +60,13 @@ module.exports = {
 //     client: "pg",
 //     connection: {
 //       database: "cocoonmorph",
-//       user:   "postgres",
-//       password: null
+//       user:   "username",
+//       password: "password"
 //     },
 //     // migrations: {
-//     //   directory: "./data/migrations",
+//     //   directory: "./server/db/migrations",
 //     // },
-//     // seeds: { directory: "./data/seeds" },
+//     // seeds: { directory: "./server/db/seeds" },
 //   },
 //   production: {
 //     client: "pg",
@@ -68,7 +75,7 @@ module.exports = {
 //       ssl: { rejectUnauthorized: false },
 //     },
 //     migrations: {
-//       directory: "./data/migrations",
+//       directory: "./server/db/migrations",
 //     },
 //   },
 // };

@@ -2,18 +2,22 @@ import Calendar from "react-calendar";
 import React, { useState } from "react";
 import Task from "./Task.jsx";
 
-function CalendarComponent() {
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const [showTask, setShowTask] = useState(false);
-
+function CalendarComponent({
+  selectedDate,
+  setSelectedDate,
+  showTask,
+  setShowTask,
+}) {
+  //   const [selectedDate, setSelectedDate] = useState(null);
+  //   const [showTask, setShowTask] = useState(null);
+  //Displays modal and Pass Selected Date
   const openWindowForDate = (date) => {
-    setShowTask(true);
-    console.log(date.toISOString());
+    setSelectedDate(date.toISOString());
   };
 
   return (
     <div>
-      {showTask && <Task />}
+      {showTask && <Task date={selectedDate} setShowTask={setShowTask} />}
       <Calendar
         className="react-calendar"
         onClickDay={(value) => {

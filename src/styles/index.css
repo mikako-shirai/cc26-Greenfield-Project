@@ -13,9 +13,13 @@ body {
   flex-direction: row;
 }
 
-.form-area {
+.task {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
   text-align: center;
-  background-color: brown;
+  background-color: rgb(219, 231, 255);
+  gap: 1vh;
   height: 500px;
   width: 500px;
 }
@@ -70,25 +74,13 @@ th {
 
 .react-calendar__tile {
   height: 10vh;
-  border: 1px solid #000000;
+
   background-color: white;
 }
 
 .react-calendar__tile--active {
   background: #60aaff;
   color: white;
-}
-
-.task {
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 /* .react-calendar__tile--active:enabled:hover,

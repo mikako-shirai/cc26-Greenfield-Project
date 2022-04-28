@@ -1,10 +1,21 @@
 import React from "react";
+import { useEffect, useState } from "react";
 
 function Event() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const data = await fetch("/events");
+      console.log(data);
+      // setData(data);
+    })();
+  }, []);
+
   return (
     <div className="event">
-      <h1>This page is placeholder.</h1>
-      <h2>we want put the Event page</h2>
+      <p>EVENT component</p>
+      <p>{data}</p>
     </div>
   );
 }

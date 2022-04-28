@@ -1,19 +1,25 @@
 import { React, useState } from "react";
 import "../styles/index.css";
-// import "react-calendar/dist/Calendar.css";
 import Navbar from "./Navbar.jsx";
-import Task from "./Task.jsx";
 import CalendarComponent from "./Calendar.jsx";
 import Event from "./Event.jsx";
 
 function App() {
-  const [show, toggleShow] = useState(true);
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [showTask, setShowTask] = useState(false);
+
   return (
     <div className="app">
       <Navbar />
       <Event />
+
       <div>
-        <CalendarComponent />
+        <CalendarComponent
+          selectedDate={selectedDate}
+          setSelectedDate={setSelectedDate}
+          showTask={showTask}
+          setShowTask={setShowTask}
+        />
       </div>
     </div>
   );

@@ -5,13 +5,12 @@
 exports.up = function(knex) {
    return knex.schema
     .createTable("user_schedule", function (table) {
-        table.increments("id").unique().notNullable();
-        table.integer("userId"); // gets from user table;
-        table.date("date");
-        table.time("time");
-        table.string("events");
-        table.string("tasks");
-        table.integer("docs"); //from doc table? TODO later
+        table.increments("id").primary();
+        table.foreign("userId"); // gets from user table;
+        table.datetime("date");
+        table.foreign("eventId");
+        table.foreign("taskId");
+        table.foreign("docId"); //from doc table? TODO later
         table.string("comments");
     })
   

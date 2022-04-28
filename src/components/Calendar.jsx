@@ -5,7 +5,7 @@ import Task from "./Task.jsx";
 function CalendarComponent() {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [showTask, setShowTask] = useState(false);
-
+  //Displays modal
   const openWindowForDate = (date) => {
     setShowTask(true);
     console.log(date.toISOString());

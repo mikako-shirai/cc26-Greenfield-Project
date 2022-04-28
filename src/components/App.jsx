@@ -28,6 +28,24 @@ function App() {
     setShowEvent(true);
   };
 
+  const [showCalendar, setCalendar] = useState(false);
+  const [showDocument, setDocument] = useState(false);
+  const [showTaskList, setTaskList] = useState(false);
+  const [showEvent, setEvent] = useState(false);
+
+  const displayCalender = () => {
+    setCalendar(true);
+  };
+  const displayDocument = () => {
+    setDocument(true);
+  };
+  const displayTaskList = () => {
+    setTaskList(true);
+  };
+  const displayEvent = () => {
+    setEvent(true);
+  };
+
   return (
     <div className="app">
 
@@ -42,7 +60,7 @@ function App() {
         <CalendarComponent
           selectedDate={selectedDate}
           setSelectedDate={setSelectedDate}
-          showTask={showTask}
+          showTask={showTaskList}
           setShowTask={setShowTask}
         />
       </div>

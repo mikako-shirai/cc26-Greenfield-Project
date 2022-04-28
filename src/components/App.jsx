@@ -1,13 +1,20 @@
 import { React, useState } from "react";
 import "../styles/index.css";
+// import "react-calendar/dist/Calendar.css";
 import Navbar from "./Navbar.jsx";
 import Task from "./Task.jsx";
+import CalendarComponent from "./Calendar.jsx";
+import Event from "./Event.jsx";
 
 function App() {
   const [show, toggleShow] = useState(true);
   return (
-    <div className="App">
+    <div className="app">
       <Navbar />
+      <Event />
+      <div>
+        <CalendarComponent />
+      </div>
     </div>
   );
 }

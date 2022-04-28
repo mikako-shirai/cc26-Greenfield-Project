@@ -10,7 +10,7 @@ exports.up = function(knex) {
         table.date("date");
         table.string("events");
         table.string("tasks");
-        table.string("docs");
+        table.integer("docId"); //from doc table
         table.string("info");
     })
   

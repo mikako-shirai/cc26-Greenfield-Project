@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 
-function Task() {
+function Task({ date, sub, setShowTask }) {
   const [task, setTasklist] = useState("");
   const initialState = [{ task: "here is my task", isCompleted: false }];
   const [todos, setTodos] = useState(initialState);
+  const [hide, setHide] = useState(false);
 
   const getNewTask = (event) => {
     setTasklist(event.target.value);
@@ -15,6 +16,7 @@ function Task() {
     setTodos((todos) => [...todos, { task, isCompleted: false }]);
     console.log(todos);
     setTasklist("");
+    setHide(true);
   };
 
   const handleUpdateTask = (index) => {
@@ -37,17 +39,41 @@ function Task() {
           <br />
           push "&#x1F44D;" after finish it!
         </p>
-
-        <form className="form-area" onSubmit={handleSubmit}>
+        <p>Selected Date: {date.substring(0, 10) || "failed"}</p>
+        <div className="form-area">
+          <div>
+            <p>Type of task</p>
+            <input type="checkbox" name="Document" />
+            <label for="Document">Document</label>
+            <input type="checkbox" name="Task" />
+            <label for="Task">Task</label>
+            <input type="checkbox" name="Event" />
+            <label for="Event">Event</label>
+          </div>
           <input
             value={task}
             placeholder="Add New Task"
             onChange={getNewTask}
           />
-          <button type="submit">Add</button>
-        </form>
 
-        {todos.map((todo, index) => (
+          <button
+            type="submit"
+            onClick={() => {
+              setShowTask(false);
+            }}
+          >
+            Add
+          </button>
+          <button
+            onClick={() => {
+              setShowTask(false);
+            }}
+          >
+            cancel
+          </button>
+        </div>
+
+        {/* {todos.map((todo, index) => (
           <div
             className="to-do-list"
             key={index}
@@ -60,7 +86,7 @@ function Task() {
             <span onClick={() => handleUpdateTask(index)}>&#x1F44D;</span>
             {todo.task}
           </div>
-        ))}
+        ))} */}
       </div>
     </>
   );

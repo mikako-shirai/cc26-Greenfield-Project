@@ -1,39 +1,30 @@
 const express = require("express");
+const cors = require('cors');
 // const db = require("./db");
 
 const app = express();
 app.use(express.json());
-const PORT = process.env.PORT || 80;
+app.use(cors({
+  origin: 'http://localhost:8080'
+}));
+const PORT = process.env.PORT || 8080;
 
-// app.use("/", express.static(__dirname + "../public"));
+// app.use(express.static(__dirname + "../public"));
 
-app.get("/", async (req, res) => {
-  console.log("from index.js : /");
+app.get("/home", (req, res) => {
+  res.send("test");
 });
 
-app.get("/home", async (req, res) => {
-  console.log("from index.js : /home");
+app.get("/docs", (req, res) => {
+  res.send();
 });
 
-app.get("/login", async (req, res) => {
-  console.log("from index.js : /login");
+app.get("/tasks", (req, res) => {
+  res.send();
 });
 
-app.get("/signup", async (req, res) => {
-  console.log("from index.js : /signup");
-});
-
-app.get("/docs", async (req, res) => {
-  console.log("from index.js : /docs");
-});
-
-app.get("/tasks", async (req, res) => {
-  console.log("from index.js : /tasks");
-});
-
-app.get("/events", async (req, res) => {
-  console.log("from index.js : /events");
-  res.status(200).send([1,2,3]);
+app.get("/events", (req, res) => {
+  res.send(JSON.stringify({"test": "test"}));
 });
 
 app.listen(PORT, () => {

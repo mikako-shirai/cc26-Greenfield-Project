@@ -8,15 +8,13 @@ function CalendarComponent({
   showTask,
   setShowTask,
 }) {
-  //   const [selectedDate, setSelectedDate] = useState(null);
-  //   const [showTask, setShowTask] = useState(null);
   //Displays modal and Pass Selected Date
   const openWindowForDate = (date) => {
     setSelectedDate(date.toISOString());
   };
 
   return (
-    <div>
+    <div className="calendar">
       {showTask && <Task date={selectedDate} setShowTask={setShowTask} />}
       <Calendar
         className="react-calendar"

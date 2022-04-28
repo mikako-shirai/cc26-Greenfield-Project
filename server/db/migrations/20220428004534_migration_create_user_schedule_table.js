@@ -8,7 +8,7 @@ exports.up = function(knex) {
         table.increments("id").unique().notNullable();
         table.integer("userId"); // gets from user table;
         table.date("date");
-        table.dateTime("time");
+        table.time("time");
         table.string("events");
         table.string("tasks");
         table.integer("docs"); //from doc table? TODO later

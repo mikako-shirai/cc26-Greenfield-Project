@@ -27,33 +27,25 @@ function Task() {
     });
     setTodos(newTodos);
   };
-
+  
   return (
-    <>
-      {/* {console.log("task")} */}
+      <>
       <div className="task">
-        <form className="form-area" onSubmit={handleSubmit}>
-          <input
-            value={task}
-            placeholder="Add New Task"
-            onChange={getNewTask}
-          />
+        <h2>Task list</h2>
+        <p>add your task below<br/>
+        push "&#x1F44D;" after finish it!</p>
+
+        <form className="form-area" onSubmit = {handleSubmit}>
+          <input value={task} placeholder= "Add New Task"
+          onChange={getNewTask} />
           <button type="submit">Add</button>
         </form>
 
-        {todos.map((todo, index) => (
-          <div
-            className="todo-list"
-            key={index}
-            style={
-              todo.isCompleted === true
-                ? { textDecorationLine: "line-through" }
-                : {}
-            }
-          >
-            <span onClick={() => handleUpdateTask(index)}>&#x1F44D;</span>
-            {todo.task}
-          </div>
+        {todos.map((todo, index)=>(
+          <div className ="to-do-list" key={index} style ={ todo.isCompleted === true ?
+          {textDecorationLine: "line-through"}:{}}>
+          <span onClick={()=>handleUpdateTask(index)}>&#x1F44D;</span>
+          {todo.task}</div>
         ))}
       </div>
     </>
@@ -61,3 +53,4 @@ function Task() {
 }
 
 export default Task;
+

@@ -17,8 +17,7 @@ function Event() {
 
   return (
     <div className="event">
-      <p>EVENT component</p>
-      <p>{data}</p>
+      <span>EVENT {data}</span>
     </div>
   );
 }

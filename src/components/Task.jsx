@@ -30,8 +30,14 @@ function Task() {
 
   return (
     <>
-      {/* {console.log("task")} */}
       <div className="task">
+        <h2>Task list</h2>
+        <p>
+          add your task below
+          <br />
+          push "&#x1F44D;" after finish it!
+        </p>
+
         <form className="form-area" onSubmit={handleSubmit}>
           <input
             value={task}
@@ -43,7 +49,7 @@ function Task() {
 
         {todos.map((todo, index) => (
           <div
-            className="todo-list"
+            className="to-do-list"
             key={index}
             style={
               todo.isCompleted === true

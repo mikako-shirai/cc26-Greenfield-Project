@@ -1,15 +1,16 @@
 import React from "react";
 import Search from "./Searchbtn.jsx";
 
-function Navbar() {
+function Navbar({ displayCalender, displayDocument, displayTaskList, displayEvent }) {
+
   return (
     <div className="navbar">
       <Search />
+      <a onClick={displayCalender}>Calendar</a> 
+      <a onClick={displayDocument}>Document</a>
+      <a onClick={displayTaskList}>Task</a>
+      <a onClick={displayEvent}>Event</a> 
 
-      <a href="calendar">Calendar</a>
-      <a href="docs">Docs</a>
-      <a href="task">Task</a>
-      <a href="event">Events</a>
     </div>
   );
 }

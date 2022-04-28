@@ -3,7 +3,8 @@
  * @returns { Promise<void> } 
  */
 exports.seed = async function(knex) {
-  // Deletes ALL existing entries
+  
+  await knex('user_schedule').del()
   await knex('user').del();
-  await knex('calendar').del();
+  //add new tables
 };

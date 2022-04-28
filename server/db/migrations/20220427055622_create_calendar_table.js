@@ -12,7 +12,7 @@ exports.up = function (knex) {
             table.integer("month");
             table.integer("year");
             table.string("dayOfWeek");
-            table.time("time");
+            table.dateTime("time");
         })
 };
 

@@ -3,7 +3,7 @@
  * @returns { Promise<void> }
  */
 exports.up = function(knex) {
-    knex.schema
+   return knex.schema
     .createTable("user_schedule", function (table) {
         table.increments("id").unique().notNullable();
         table.integer("userId"); // gets from user table;

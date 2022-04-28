@@ -4,8 +4,8 @@ import Search from "./Searchbtn.jsx";
 
 function Document() {
   return (
-    <div className="documentPage">
-        <h2>the Document page</h2>
+    <div className="document-page">
+        <h2>Document page</h2>
         <form className="documentform" >
           <select className="documentform-week" >
             <option value="week1">week1</option>
@@ -25,7 +25,7 @@ function Document() {
         <Search />
 
         <div className="document-table">
-          <table striped bordered hover>
+          <table >
             <thead>
               <tr>
                 <th>id</th>

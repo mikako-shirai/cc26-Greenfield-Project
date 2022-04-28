@@ -2,6 +2,7 @@
   "name": "morpho",
   "version": "0.1.0",
   "private": true,
+  "main": "server/server.js",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
@@ -9,6 +10,7 @@
     "bootstrap": "^5.1.3",
     "express": "^4.18.0",
     "knex": "^2.0.0",
+    "nodemon": "^2.0.15",
     "pg": "^8.7.3",
     "postgres": "^3.1.0",
     "react": "^18.1.0",
@@ -20,12 +22,13 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "dev": "nodemon server/server",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "migrate-latest": "npx knex migrate:latest --knexfile server/db/knexfile.js",
-    "migrate-down": "npx knex migrate:down --knexfile server/db/knexfile.js",
-    "seed-data": "npx knex seed:run --knexfile server/db/knexfile.js"
+    "migrate-latest": "npx knex migrate:latest --knexfile knexfile.js",
+    "migrate-down": "npx knex migrate:down --knexfile knexfile.js",
+    "seed-data": "npx knex seed:run --knexfile knexfile.js"
   },
   "eslintConfig": {
     "extends": [

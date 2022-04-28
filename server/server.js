@@ -28,6 +28,7 @@ app.get("/tasks", async (req, res) => {
 });
 
 app.get("/events", async (req, res) => {
+  res.json({events: [1, 2, 3, 4, 5]});
   console.log("from index.js");
 });
 

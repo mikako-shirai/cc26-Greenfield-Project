@@ -4,10 +4,9 @@
  */
 exports.seed = async function(knex) {
   // Deletes ALL existing entries
-  await knex('table_name').del()
-  await knex('table_name').insert([
-    {id: 1, colName: 'rowValue1'},
-    {id: 2, colName: 'rowValue2'},
-    {id: 3, colName: 'rowValue3'}
+  await knex('docs').del()
+  await knex('docs').insert([
+    {id: 1, document: 'rowValue1', date_time:"2022-04-29 09:00:00"},
+
   ]);
 };

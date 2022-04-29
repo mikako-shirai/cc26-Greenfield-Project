@@ -5,25 +5,25 @@ It includes a calendar that can add events, tasks, and documents.
   
 
 ## Set Up  
-> 1.
+1  
 Run `npm i` / `npm install` to  install dependencies.  
 All back-end files are under the `server` folder.  
 All front-end files are under the `src` folder.  
   
-> 2.
+2  
 In a separate terminal, start postgres psql  
 `$ psql -U postgres`  
 
 Inside postgres, run the following command to create a database:
 `$ CREATE DATABASE cocoonmorpho;`  
   
-> 3.
+3  
 In your other terminal, please run the following to migrate and seed the database:  
   
 `$ npm run migrate-latest`  
 `$ npm run seed-data`  
   
-> 4.
+4  
 To check tests please run `npm test` or `npm run test` in your terminal.  
   
 Enjoy your experience using Morpho!  

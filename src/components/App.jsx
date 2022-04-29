@@ -44,7 +44,6 @@ function App() {
           showTask={showTask}
           setShowTask={setShowTask}
         />
-      </div>
 
       <div className="content-wrapper">
         {showCalendarPage && (
@@ -55,13 +54,14 @@ function App() {
             setShowTask={setShowTask}
           />
         )}
-        <div className="second-wrapper">
-          {showDocumentPage && <Document />}
-          {showToDoPage && <ToDo />}
-          {showEventPage && <Event />}
+          <div className="second-wrapper">
+            {showDocumentPage && <Document />}
+            {showToDoPage && <ToDo />}
+            {showEventPage && <Event />}
+          </div>
         </div>
       </div>
-    </div>
+    </div> 
   );
 }
 

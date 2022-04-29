@@ -4,8 +4,6 @@ import Navbar from "./Navbar.jsx";
 import CalendarComponent from "./Calendar.jsx";
 import Document from "./Document";
 import Event from "./Event.jsx";
-// import Calendar from "react-calendar/dist/umd/Calendar";
-import Task from "./Task.jsx";
 import ToDo from "./ToDo";
 
 function App() {
@@ -47,7 +45,7 @@ function App() {
         />
       </div>
 
-      {showCalendar && <Calendar />}
+      {showCalendar && <CalendarComponent />}
       {showDocument && <Document />}
       {showToDo && <ToDo />}
       {showEvent && <Event />}

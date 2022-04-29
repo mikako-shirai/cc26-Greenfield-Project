@@ -15,16 +15,27 @@ function App() {
   const [showToDoPage, setShowToDoPage] = useState(false);
   const [showEventPage, setShowEventPage] = useState(false);
 
+  const hideEverything = () => {
+    setShowCalendarPage(false);
+    setShowDocumentPage(false);
+    setShowToDoPage(false);
+    setShowEventPage(false);
+  };
+
   const displayCalender = () => {
+    hideEverything();
     setShowCalendarPage(true);
   };
   const displayDocument = () => {
+    hideEverything();
     setShowDocumentPage(true);
   };
   const displayToDo = () => {
+    hideEverything();
     setShowToDoPage(true);
   };
   const displayEvent = () => {
+    hideEverything();
     setShowEventPage(true);
   };
 
@@ -37,13 +48,14 @@ function App() {
         displayEvent={displayEvent}
       />
 
-      <div className="mainfield">
+      {/* <div className="mainfield">
         <CalendarComponent
           selectedDate={selectedDate}
           setSelectedDate={setSelectedDate}
           showTask={showTask}
           setShowTask={setShowTask}
         />
+      </div> */}
 
       <div className="content-wrapper">
         {showCalendarPage && (
@@ -60,7 +72,7 @@ function App() {
           {showEventPage && <Event />}
         </div>
       </div>
-    </div> 
+    </div>
   );
 }
 

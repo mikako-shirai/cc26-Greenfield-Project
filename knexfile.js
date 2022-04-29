@@ -6,8 +6,7 @@
 module.exports = {
 
   development: {
-    // client: 'postgresql',
-    client: "pg",
+    client: 'postgresql',
     connection: {
       database: "cocoonmorpho",
       user: "postgres",
@@ -21,8 +20,7 @@ module.exports = {
   },
 
   staging: {
-    // client: 'postgresql',
-    client: "pg",
+    client: 'postgresql',
     connection: {
       database: 'cocoonmorpho',
       user: 'username',
@@ -39,8 +37,7 @@ module.exports = {
   },
 
   production: {
-    // client: 'postgresql',
-    client: "pg",
+    client: 'postgresql',
     // connection: {
     //   database: 'cocoonmorpho',
     //   user: 'username',

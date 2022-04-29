@@ -52,14 +52,14 @@ function Task({ date, setShowTask, setNewToDo }) {
             />
 
             <button type="submit">Add</button>
-            <button
-              onClick={() => {
-                setShowTask(false);
-              }}
-            >
-              Cancel
-            </button>
           </form>
+          <button
+            onClick={() => {
+              setShowTask(false);
+            }}
+          >
+            Cancel
+          </button>
         </div>
       </div>
     </>

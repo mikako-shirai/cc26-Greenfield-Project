@@ -54,11 +54,10 @@ function App() {
             setShowTask={setShowTask}
           />
         )}
-          <div className="second-wrapper">
-            {showDocumentPage && <Document />}
-            {showToDoPage && <ToDo />}
-            {showEventPage && <Event />}
-          </div>
+        <div className="second-wrapper">
+          {showDocumentPage && <Document />}
+          {showToDoPage && <ToDo />}
+          {showEventPage && <Event />}
         </div>
       </div>
     </div> 

@@ -12,14 +12,16 @@ function ToDo() {
 
   return (
     <div className="ToDo-component">
-        <h2>To Do List</h2>
-        {sampleTodo.map((elem)=>((<div>
+        <h2 className="ToDo-title">To Do List</h2>
+        <div className="ToDo-wrapper">
+        {sampleTodo.map((elem)=>((<div className="ToDo-item">
             <input type="checkbox"></input>
             <input type="date"></input>
                 {elem.todo}
             </div>
             )
         ))}
+        </div>
     </div>
   );
 }

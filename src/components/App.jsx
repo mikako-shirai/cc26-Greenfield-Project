@@ -8,34 +8,35 @@ import ToDo from "./ToDo";
 
 function App() {
   const [selectedDate, setSelectedDate] = useState(null);
-  const [showCalendar, setShowCalendar] = useState(false);
-  const [showDocument, setShowDocument] = useState(false);
   const [showTask, setShowTask] = useState(false);
-  const [showToDo, setShowToDo] = useState(false);
-  const [showEvent, setShowEvent] = useState(false);
+
+  const [showCalendarPage, setShowCalendarPage] = useState(false);
+  const [showDocumentPage, setShowDocumentPage] = useState(false);
+  const [showToDoPage, setShowToDoPage] = useState(false);
+  const [showEventPage, setShowEventPage] = useState(false);
 
   const displayCalender = () => {
-    setShowCalendar(true);
+    setShowCalendarPage(true);
   };
   const displayDocument = () => {
-    setShowDocument(true);
+    setShowDocumentPage(true);
   };
   const displayToDo = () => {
-      setShowToDo(true);
-    };
+    setShowToDoPage(true);
+  };
   const displayEvent = () => {
-    setShowEvent(true);
+    setShowEventPage(true);
   };
 
   return (
     <div className="app">
-      <Navbar 
-      displayCalender={displayCalender}
-      displayDocument={displayDocument}
-      displayToDo={displayToDo}
-      displayEvent={displayEvent} 
+      <Navbar
+        displayCalender={displayCalender}
+        displayDocument={displayDocument}
+        displayToDo={displayToDo}
+        displayEvent={displayEvent}
       />
-      
+
       <div>
         <CalendarComponent
           selectedDate={selectedDate}
@@ -46,7 +47,7 @@ function App() {
       </div>
 
       <div className="content-wrapper">
-        {showCalendar && (
+        {showCalendarPage && (
           <CalendarComponent
             selectedDate={selectedDate}
             setSelectedDate={setSelectedDate}
@@ -54,9 +55,9 @@ function App() {
             setShowTask={setShowTask}
           />
         )}
-        {showDocument && <Document />}
-        {showToDo && <ToDo />}
-        {showEvent && <Event />}
+        {showDocumentPage && <Document />}
+        {showToDoPage && <ToDo />}
+        {showEventPage && <Event />}
       </div>
     </div>
   );

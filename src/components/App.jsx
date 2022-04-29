@@ -56,9 +56,9 @@ function App() {
           />
         )}
         <div className="second-wrapper">
-          {showDocument && <Document />}
-          {showToDo && <ToDo />}
-          {showEvent && <Event />}
+          {showDocumentPage && <Document />}
+          {showToDoPage && <ToDo />}
+          {showEventPage && <Event />}
         </div>
       </div>
     </div>

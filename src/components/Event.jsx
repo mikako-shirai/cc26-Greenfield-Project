@@ -18,7 +18,7 @@ function Event() {
 
   return (
     <div className="event">
-      <span>EVENT {data}</span>
+      <span>data: {data}</span>
     </div>
   );
 }

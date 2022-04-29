@@ -6,7 +6,7 @@ It includes a calendar that can add events, tasks, and documents.
 
 ## Set Up  
 1  
-Run `npm i` or `npm install` to  install dependencies.  
+Run `npm i` or `npm install` in the terminal to  install dependencies.  
 All *back-end* files are under the `./server` folder.  
 All *front-end* files are under the `./src` folder.  
   

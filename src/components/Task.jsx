@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-function Task({ date, setShowTask }) {
+function Task({ date, setShowTask, setNewToDo }) {
   const [task, setTasklist] = useState("");
-  // const initialState = [{ task: "", type: "", date: "", time: "" }];
-  const [type, setType] = useState("");
+  const [type, setType] = useState("todo");
   const [time, setTime] = useState("");
   const [todos, setTodos] = useState([]);
+  // const initialState = {
+  //   task: task,
+  //   type: type,
+  //   date: date.substring(0, 10),
+  //   time: time,
+  // };
 
   const getNewTask = (event) => {
     setTasklist(event.target.value);
@@ -13,13 +18,22 @@ function Task({ date, setShowTask }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(task, time, type);
-    // if (task === "") return;
-    // setTodos((todos) => [...todos, { task, type }]);
-    // console.log(todos);
-    // setTasklist("");
+
+    const newToDo = {
+      task: task,
+      type: type,
+      date: date.substring(0, 10),
+      time: time,
+    };
+
+    setTodos((todos) => [...todos, newToDo]);
     setShowTask(false);
+    setNewToDo(true);
   };
+
+  useEffect(() => {
+    console.log(todos);
+  }, [todos]);
 
   const handleUpdateTask = (index) => {
     let newTodos = todos.map((todo, todoIndex) => {

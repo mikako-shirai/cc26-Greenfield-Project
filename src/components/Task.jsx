@@ -52,8 +52,6 @@ function Task({ date, setShowTask, setNewToDo }) {
         <h2>Task list</h2>
         <p>
           add your task below
-          <br />
-          push "&#x1F44D;" after finish it!
         </p>
         <p>Selected Date: {date.substring(0, 10) || "failed"}</p>
 

@@ -18,6 +18,7 @@ function Event() {
       dateTime: '2022-01-20T00:00:00.000Z'
     }
     await axios.post("/events/save", testEvent);
+    await getAllEvents();
   };
 
   useEffect(() => {
@@ -29,12 +30,15 @@ function Event() {
   }, [events]);
 
   return (
-    <div className="event">
-      <span>data: {
-        events.map((obj, index) => <span key={index}>{obj.eventName}</span>)
-      }</span>
+    <div className="event" style={{ margin: "50px" }}>
+      <div>data: {
+        events.map((obj, index) => <div key={index}>{obj.eventName}</div>)
+      }</div>
 
-      <p onClick={async () => {await addNewEvent();}} style={{ cursor: "pointer" }}>add event</p>
+      <div
+        onClick={async () => {await addNewEvent();}}
+        style={{ cursor: "pointer", background: "#ddd" }}
+      >add event</div>
     </div>
   );
 }

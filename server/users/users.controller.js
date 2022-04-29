@@ -16,10 +16,9 @@ module.exports = {
     const { id, username, firstName, lastName, email, password } = req.body;
 
     const user = {
-      id,
       username,
-      firstName,
-      lastName,
+      first_name: firstName,
+      last_name: lastName,
       email,
       password
     };

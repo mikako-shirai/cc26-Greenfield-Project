@@ -24,5 +24,7 @@ module.exports = {
 
     id ? await eventsModel.update(id, event)
        : await eventsModel.create(event);
+    
+    res.status(200).send();
   }
 };

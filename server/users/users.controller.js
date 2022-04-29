@@ -26,5 +26,7 @@ module.exports = {
 
     id ? await usersModel.update(id, user)
        : await usersModel.create(user);
+    
+    res.status(200).send();
   }
 };

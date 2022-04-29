@@ -8,7 +8,6 @@ exports.up = function (knex) {
             table.increments("id").primary();
             table.integer("userId").references("id").inTable("user").notNullable();
             table.datetime("date");
-            // table.integer("eventId").references("id").inTable("events").notNullable();
             table.integer("taskId").references("id").inTable("tasks").notNullable();
             table.integer("docId").references("id").inTable("docs").notNullable();
         })

@@ -4,15 +4,13 @@ const cors = require('cors');
 
 const app = express();
 app.use(express.json());
-app.use(cors({
-  origin: 'http://localhost:8080'
-}));
+app.use(cors({ origin: 'http://localhost:8080' }));
 const PORT = process.env.PORT || 8080;
 
 // app.use(express.static(__dirname + "../public"));
 
-app.get("/home", (req, res) => {
-  res.send("test");
+app.get("/calendar", (req, res) => {
+  res.send();
 });
 
 app.get("/docs", (req, res) => {
@@ -24,7 +22,7 @@ app.get("/tasks", (req, res) => {
 });
 
 app.get("/events", (req, res) => {
-  res.send(JSON.stringify({"test": "test"}));
+  res.send(JSON.stringify({"test": "a"}));
 });
 
 app.listen(PORT, () => {

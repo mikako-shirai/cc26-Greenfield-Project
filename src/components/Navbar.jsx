@@ -6,7 +6,7 @@ function Navbar({ displayCalender, displayDocument, displayToDo, displayEvent })
   return (
     <div className="navbar">
       <Search />
-      <a onClick={displayCalender}>Calendar</a> 
+      <a onClick={displayCalender}>Calendar</a>
       <a onClick={displayDocument}>Documents</a>
       <a onClick={displayToDo}>ToDo</a>
       <a onClick={displayEvent}>Events</a> 

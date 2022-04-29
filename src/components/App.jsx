@@ -52,6 +52,19 @@ function App() {
       {showToDo && <ToDo />}
       {showEvent && <Event />}
 
+      <div className="content-wrapper">
+        {showCalendar && (
+          <CalendarComponent
+            selectedDate={selectedDate}
+            setSelectedDate={setSelectedDate}
+            showTask={showTask}
+            setShowTask={setShowTask}
+          />
+        )}
+        {showDocument && <Document />}
+        {showToDo && <ToDo />}
+        {showEvent && <Event />}
+      </div>
     </div>
   );
 }

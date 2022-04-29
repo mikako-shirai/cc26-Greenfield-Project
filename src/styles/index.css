@@ -24,6 +24,27 @@ body {
   width: 500px;
 }
 
+/* .navbar-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+} */
+
+/* .calendar-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+/* .content-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
 .navbar {
   display: flex;
   flex-direction: column;
@@ -32,10 +53,17 @@ body {
   height: 100vh;
   align-items: center;
 }
+
 .navbar * {
   margin-bottom: 10px;
   padding: 10px;
 }
+
+/* .calendar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
 
 a {
   color: rgb(97, 111, 129);

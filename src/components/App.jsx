@@ -36,7 +36,8 @@ function App() {
       displayEvent={displayEvent} 
       />
       
-      <div>
+      <div className="mainfield">
+      <div >
         <CalendarComponent
           selectedDate={selectedDate}
           setSelectedDate={setSelectedDate}
@@ -54,9 +55,12 @@ function App() {
             setShowTask={setShowTask}
           />
         )}
+        <div className="second-wrapper">
         {showDocument && <Document />}
         {showToDo && <ToDo />}
         {showEvent && <Event />}
+        </div>
+      </div>
       </div>
     </div>
   );

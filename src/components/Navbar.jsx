@@ -9,8 +9,7 @@ function Navbar({ displayCalender, displayDocument, displayToDo, displayEvent })
       <a onClick={displayCalender}>Calendar</a>
       <a onClick={displayDocument}>Documents</a>
       <a onClick={displayToDo}>ToDo</a>
-      <a onClick={displayEvent}>Events</a> 
-
+      <a onClick={displayEvent}>Events</a>
     </div>
   );
 }

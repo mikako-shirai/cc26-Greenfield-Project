@@ -3,22 +3,37 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 function Event() {
-  const [data, setData] = useState([]);
+  const [events, setEvents] = useState([]);
 
-  const getEvents = async () => {
+  const getAllEvents = async () => {
     const res = await axios.get("/events");
-    console.log('data :',res);
-    // const data = [res.data.test];
-    // setData(data);
+    const eventsAll = res.data;
+    setEvents(eventsAll);
+    console.log(events);
+  };
+
+  const addNewEvent = async () => {
+    const testEvent = {
+      eventName: 'TEST event',
+      description: 'TEST event',
+      dateTime: '2022-01-20T00:00:00.000Z'
+    }
+    await axios.post("/events/save", testEvent);
   };
 
   useEffect(() => {
-    getEvents();
+    getAllEvents();
   }, []);
+
+  useEffect(() => {}, [events]);
 
   return (
     <div className="event">
-      <span>data: {data}</span>
+      <span>data: {
+        events.map((obj, index) => <span key={index}>{obj.eventName}</span>)
+      }</span>
+
+      <p onClick={async () => {await addNewEvent();}} style={{ cursor: "pointer" }}>add event</p>
     </div>
   );
 }

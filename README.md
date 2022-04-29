@@ -19,14 +19,13 @@ Inside postgres, run the following command to create a database:
   
 3  
 In your other terminal, please run the following to migrate and seed the database:  
-  
 `$ npm run migrate-latest`  
 `$ npm run seed-data`  
   
 4  
 To check tests, please run `npm test` or `npm run test` in your terminal.  
   
-Enjoy your experience using **Morpho** !  
+Enjoy your experience using **Morpho**!  
   
   
 ## Issues  

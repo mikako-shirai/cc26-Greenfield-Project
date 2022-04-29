@@ -4,23 +4,28 @@ Morpho is a web application designed to help you organize your day.
 It includes a calendar that can add events, tasks, and documents. 
 
 Set Up: 
-Run npm i / npm install to  install dependencies. 
+Run `npm i` / `npm install` to  install dependencies. 
 All back-end files are under the server folder. 
 All front-end files are under the client folder. 
 
 In a separate terminal, start postgres psql
 
 Inside postgres run the following command to create a database:
-CREATE DATABASE cocoonmorpho;
+`CREATE DATABASE cocoonmorpho;`
 
 In your other terminal, please run the following to migrate and seed the database:
 
-npm run migrate-latest
-npm run seed-data
+`npm run migrate-latest`
+`npm run seed-data`
 
 To check tests please run npm test or npm run test in your terminal. 
 
 Enjoy your experience using Morpho!
+
+Current Issues to Fix:
+Buttons create duplicates to the right.
+Front-end unable to pass data to the back-end.
+Create more tests.
 
 
 Future features to implement in the future: 

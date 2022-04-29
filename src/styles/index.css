@@ -13,6 +13,10 @@ body {
   flex-direction: row;
 }
 
+.mainfield{
+  display: flex;
+  flex-direction: column;
+}
 .task {
   display: flex;
   flex-direction: column;

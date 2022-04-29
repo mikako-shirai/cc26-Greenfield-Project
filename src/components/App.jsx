@@ -44,7 +44,6 @@ function App() {
           showTask={showTask}
           setShowTask={setShowTask}
         />
-      </div>
 
       <div className="content-wrapper">
         {showCalendarPage && (
@@ -61,7 +60,7 @@ function App() {
           {showEventPage && <Event />}
         </div>
       </div>
-    </div>
+    </div> 
   );
 }
 

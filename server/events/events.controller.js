@@ -16,10 +16,9 @@ module.exports = {
     const { id, eventName, description, dateTime } = req.body;
 
     const event = {
-      id,
-      eventName,
+      event_name: eventName,
       description,
-      dateTime
+      date_time: dateTime
     };
 
     id ? await eventsModel.update(id, event)

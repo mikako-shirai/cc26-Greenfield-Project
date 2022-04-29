@@ -16,10 +16,9 @@ module.exports = {
     const { id, taskName, taskInfo, dateTime } = req.body;
 
     const task = {
-      id,
-      taskName,
-      taskInfo,
-      dateTime
+      task_name: taskName,
+      task_info: taskInfo,
+      date_time: dateTime
     };
 
     id ? await tasksModel.update(id, task)

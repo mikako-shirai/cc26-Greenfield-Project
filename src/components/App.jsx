@@ -45,11 +45,6 @@ function App() {
         />
       </div>
 
-      {showCalendar && <CalendarComponent />}
-      {showDocument && <Document />}
-      {showToDo && <ToDo />}
-      {showEvent && <Event />}
-
       <div className="content-wrapper">
         {showCalendar && (
           <CalendarComponent

@@ -5,7 +5,7 @@ const path = require("path");
 const app = express();
 app.use(express.json());
 app.use(cors({ origin: 'http://localhost:8080/' }));
-app.use(express.static(path.join(__dirname, "../public")));
+app.use(express.static(path.join(__dirname, "public")));
 const PORT = process.env.PORT || 8080;
 
 const usersController = require("./users/users.controller");

@@ -8,8 +8,7 @@ function Event() {
   const getAllEvents = async () => {
     const res = await axios.get("/events");
     const eventsAll = res.data;
-    // setEvents(eventsAll);
-    console.log(eventsAll)
+    setEvents(eventsAll);
   };
 
   const addNewEvent = async () => {

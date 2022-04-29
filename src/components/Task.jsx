@@ -2,21 +2,23 @@ import React, { useState } from "react";
 
 function Task({ date, setShowTask }) {
   const [task, setTasklist] = useState("");
-  const initialState = [{ task: "here is my task", isCompleted: false }];
-  const [todos, setTodos] = useState(initialState);
-  const [hide, setHide] = useState(false);
+  // const initialState = [{ task: "", type: "", date: "", time: "" }];
+  const [type, setType] = useState("");
+  const [time, setTime] = useState("");
+  const [todos, setTodos] = useState([]);
 
   const getNewTask = (event) => {
     setTasklist(event.target.value);
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(event.target);
-    if (task === "") return;
-    setTodos((todos) => [...todos, { task, isCompleted: false }]);
-    console.log(todos);
-    setTasklist("");
-    setHide(true);
+    console.log(task, time, type);
+    // if (task === "") return;
+    // setTodos((todos) => [...todos, { task, type }]);
+    // console.log(todos);
+    // setTasklist("");
+    setShowTask(false);
   };
 
   const handleUpdateTask = (index) => {
@@ -24,7 +26,7 @@ function Task({ date, setShowTask }) {
       if (todoIndex === index) {
         todo.isCompleted = !todo.isCompleted;
       }
-      console.log(todo);
+      console.log(task, todo, type);
       return todo;
     });
     setTodos(newTodos);
@@ -40,37 +42,35 @@ function Task({ date, setShowTask }) {
           push "&#x1F44D;" after finish it!
         </p>
         <p>Selected Date: {date.substring(0, 10) || "failed"}</p>
-        <div className="form-area">
-          <div>
-            <p>Type of task</p>
-            <input type="checkbox" name="Document" />
-            <label for="Document">Document</label>
-            <input type="checkbox" name="Task" />
-            <label for="Task">Task</label>
-            <input type="checkbox" name="Event" />
-            <label for="Event">Event</label>
-          </div>
-          <input
-            value={task}
-            placeholder="Add New Task"
-            onChange={getNewTask}
-          />
 
-          <button
-            type="submit"
-            onClick={() => {
-              setShowTask(false);
-            }}
-          >
-            Add
-          </button>
-          <button
-            onClick={() => {
-              setShowTask(false);
-            }}
-          >
-            cancel
-          </button>
+        <div className="form-area">
+          <form className="documentform" onSubmit={handleSubmit}>
+            <input
+              type="time"
+              value={time}
+              required
+              onChange={(e) => setTime(e.target.value)}
+            />
+            <select value={type} onChange={(e) => setType(e.target.value)}>
+              <option>todo</option>
+              <option>document</option>
+              <option>event</option>
+            </select>
+            <input
+              value={task}
+              placeholder="Add New Task"
+              onChange={getNewTask}
+            />
+
+            <button type="submit">Add</button>
+            <button
+              onClick={() => {
+                setShowTask(false);
+              }}
+            >
+              Cancel
+            </button>
+          </form>
         </div>
 
         {/* {todos.map((todo, index) => (

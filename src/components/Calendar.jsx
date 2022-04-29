@@ -13,6 +13,7 @@ function CalendarComponent({
     setSelectedDate(date.toISOString());
   };
 
+  //When you call (onCLickDay) in the calendar it will display Task modal, Isosstringify current date and send it to Task.jsx component
   return (
     <div className="calendar">
       {showTask && <Task date={selectedDate} setShowTask={setShowTask} />}

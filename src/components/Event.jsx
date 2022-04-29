@@ -9,7 +9,6 @@ function Event() {
     const res = await axios.get("/events");
     const eventsAll = res.data;
     setEvents(eventsAll);
-    console.log(events);
   };
 
   const addNewEvent = async () => {
@@ -25,7 +24,9 @@ function Event() {
     getAllEvents();
   }, []);
 
-  useEffect(() => {}, [events]);
+  useEffect(() => {
+    console.log(events);
+  }, [events]);
 
   return (
     <div className="event">

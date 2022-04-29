@@ -24,5 +24,7 @@ module.exports = {
 
     id ? await tasksModel.update(id, task)
        : await tasksModel.create(task);
+
+    res.status(200).send();
   }
 };

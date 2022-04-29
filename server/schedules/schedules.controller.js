@@ -26,5 +26,7 @@ module.exports = {
 
     id ? await schedulesModel.update(id, schedule)
        : await schedulesModel.create(schedule);
+
+    res.status(200).send();
   }
 };

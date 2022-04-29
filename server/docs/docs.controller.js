@@ -23,5 +23,7 @@ module.exports = {
 
     id ? await docsModel.update(id, docObj)
        : await docsModel.create(docObj);
+    
+    res.status(200).send();
   }
 };

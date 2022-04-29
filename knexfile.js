@@ -6,7 +6,7 @@
 module.exports = {
 
   development: {
-    client: 'postgresql',
+    client: "pg",
     connection: {
       database: "cocoonmorpho",
       user: "postgres",
@@ -20,7 +20,7 @@ module.exports = {
   },
 
   staging: {
-    client: 'postgresql',
+    client: "pg",
     connection: {
       database: 'cocoonmorpho',
       user: 'username',
@@ -37,12 +37,7 @@ module.exports = {
   },
 
   production: {
-    client: 'postgresql',
-    // connection: {
-    //   database: 'cocoonmorpho',
-    //   user: 'username',
-    //   password: 'password'
-    // },
+    client: "pg",
     connection: {
       connectionString: process.env.DATABASE_URL,
       ssl: { rejectUnauthorized: false },
@@ -54,32 +49,5 @@ module.exports = {
     migrations: {
       directory: "./server/db/migrations",
     },
-    // seeds: { directory: "./server/db/seeds" },
   }
-
 };
-
-// module.exports = {
-//   development: {
-//     client: "pg",
-//     connection: {
-//       database: "cocoonmorph",
-//       user:   "username",
-//       password: "password"
-//     },
-//     // migrations: {
-//     //   directory: "./server/db/migrations",
-//     // },
-//     // seeds: { directory: "./server/db/seeds" },
-//   },
-//   production: {
-//     client: "pg",
-//     connection: {
-//       connectionString: process.env.DATABASE_URL,
-//       ssl: { rejectUnauthorized: false },
-//     },
-//     migrations: {
-//       directory: "./server/db/migrations",
-//     },
-//   },
-// };

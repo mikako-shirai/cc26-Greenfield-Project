@@ -1,29 +1,43 @@
 const express = require("express");
 const cors = require('cors');
-// const db = require("./db");
+// const path = require("path");
 
 const app = express();
 app.use(express.json());
 app.use(cors({ origin: 'http://localhost:8080' }));
+// app.use(express.static(path.join(__dirname, "../public")));
 const PORT = process.env.PORT || 8080;
 
-// app.use(express.static(__dirname + "../public"));
+const usersController = require("./users/users.controller");
+const schedulesController = require("./schedules/schedules.controller");
+const docsController = require("./docs/docs.controller");
+const tasksController = require("./tasks/tasks.controller");
+const eventsController = require("./events/events.controller");
 
-app.get("/calendar", (req, res) => {
-  res.send();
-});
+// users routes
+app.get("/users", usersController.index);
+app.get("/users/view/:id", usersController.view);
+app.post("/users/save", usersController.save);
 
-app.get("/docs", (req, res) => {
-  res.send();
-});
+// schedules routes
+app.get("/schedules", schedulesController.index);
+app.get("/schedules/view/:id", schedulesController.view);
+app.post("/schedules/save", schedulesController.save);
 
-app.get("/tasks", (req, res) => {
-  res.send();
-});
+// docs routes
+app.get("/docs", docsController.index);
+app.get("/docs/view/:id", docsController.view);
+app.post("/docs/save", docsController.save);
 
-app.get("/events", (req, res) => {
-  res.send(JSON.stringify({"test": "a"}));
-});
+// tasks routes
+app.get("/tasks", tasksController.index);
+app.get("/tasks/view/:id", tasksController.view);
+app.post("/tasks/save", tasksController.save);
+
+// events routes
+app.get("/events", eventsController.index);
+app.get("/events/view/:id", eventsController.view);
+app.post("/events/save", eventsController.save);
 
 app.listen(PORT, () => {
   console.log(`Running on port : ${PORT} http://localhost:${PORT}`);

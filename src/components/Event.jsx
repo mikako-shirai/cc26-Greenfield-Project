@@ -7,9 +7,9 @@ function Event() {
 
   const getEvents = async () => {
     const res = await axios.get("/events");
-    console.log(res);
-    const data = [res.data.test];
-    setData(data);
+    console.log('data :',res);
+    // const data = [res.data.test];
+    // setData(data);
   };
 
   useEffect(() => {

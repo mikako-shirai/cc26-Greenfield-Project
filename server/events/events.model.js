@@ -1,5 +1,4 @@
-const config = require("../../knexfile");
-const knex = require("knex")(config);
+const knex = require("../db/index");
 
 module.exports = {
 

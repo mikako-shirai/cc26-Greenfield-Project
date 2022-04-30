@@ -32,6 +32,7 @@ Enjoy your experience using **Morpho**!
 Current Issues to Fix:  
 - [x] ~~Buttons create duplicates to the right.~~  
 - [ ] ~~Front-end unable to pass data to the back-end.~~  Working on localhost, but not working on Heroku.
+- [ ] Events should show a list of events and have a button to add new events
 - [ ] Create more tests.  
   
   

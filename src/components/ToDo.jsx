@@ -1,7 +1,7 @@
 import React from "react";
 
 function ToDo() {
-  const sampleTodo = [
+  const toDoSamples = [
     { id: 1, todo: "fix the lighting talk" },
     { id: 2, todo: "send email for boss" },
     { id: 3, todo: "check thread on stackoverflow" },
@@ -10,11 +10,11 @@ function ToDo() {
   ];
 
   return (
-    <div className="ToDo-component">
-      <h2 className="ToDo-title">To Do List</h2>
-      <div className="ToDo-wrapper">
-        {sampleTodo.map((elem, index) => (
-          <div key={index} className="ToDo-item">
+    <div>
+      <h2 className="todo-title">To Do List</h2>
+      <div className="todo-wrapper">
+        {toDoSamples.map((elem, index) => (
+          <div key={index} className="todo-item">
             <input type="checkbox"></input>
             <input type="date"></input>
             {elem.todo}

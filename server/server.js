@@ -2,11 +2,16 @@ const express = require("express");
 const cors = require('cors');
 const path = require("path");
 
+const PORT = process.env.PORT || 8080;
+const corsOptions = {
+  origin: process.env.DATABASE_URL ? "https://cocoon-morpho.herokuapp.com/" : `http://localhost:${PORT}/`,
+  optionsSuccessStatus: 200
+}
+
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: 'http://localhost:8080/' }));
-app.use(express.static(path.join(__dirname, "../public")));
-const PORT = process.env.PORT || 8080;
+app.use(cors(corsOptions));
+app.use(express.static(path.join(__dirname, "public")));
 
 const usersController = require("./users/users.controller");
 const schedulesController = require("./schedules/schedules.controller");

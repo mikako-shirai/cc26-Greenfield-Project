@@ -6,7 +6,7 @@ It includes a calendar that can add events, tasks, and documents.
 
 ## Set Up  
 1  
-Run `npm i` or `npm install` in the terminal to  install dependencies.  
+Run `npm i` or `npm install` in the terminal to install dependencies.  
 All *back-end* files are under the `./server` folder.  
 All *front-end* files are under the `./src` folder.  
   
@@ -46,7 +46,7 @@ Future features to implement in the future:
 - [ ] Communication feature to connect to other classmates or coworkers.  
 - [ ] Check in for class/work place - status for communication feature (This feature is meant to show whether someone will be attending online or in person).  
 - [ ] Be able to share/save documents.  
-- [ ] Reminders based on weather or options for sustainability(Ex. bring an umbrella, bring eco-bag/waterbottle, etc.)  
+- [ ] Reminders based on weather or options for sustainability (Ex. bring an umbrella, bring eco-bag/waterbottle, etc.)  
 - [ ] Log in as student/teacher/worker etc.  
 - [ ] Import schedules from other apps.  
   

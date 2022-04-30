@@ -4,9 +4,8 @@
  * @type { Object.<string, import("knex").Knex.Config> }
  */
 module.exports = {
-
   development: {
-    client: 'postgresql',
+    client: "pg",
     connection: {
       database: "cocoonmorpho",
       user: "postgres",
@@ -20,15 +19,11 @@ module.exports = {
   },
 
   staging: {
-    client: 'postgresql',
+    client: "pg",
     connection: {
       database: 'cocoonmorpho',
       user: 'username',
       password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
     },
     migrations: {
       directory: "./server/db/migrations",
@@ -37,45 +32,13 @@ module.exports = {
   },
 
   production: {
-    client: 'postgresql',
+    client: "pg",
     connection: {
-      database: 'cocoonmorpho',
-      user: 'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
+      connectionString: process.env.DATABASE_URL,
+      ssl: { rejectUnauthorized: false },
     },
     migrations: {
       directory: "./server/db/migrations",
     },
-    seeds: { directory: "./server/db/seeds" },
   }
-
 };
-
-// module.exports = {
-//   development: {
-//     client: "pg",
-//     connection: {
-//       database: "cocoonmorph",
-//       user:   "username",
-//       password: "password"
-//     },
-//     // migrations: {
-//     //   directory: "./server/db/migrations",
-//     // },
-//     // seeds: { directory: "./server/db/seeds" },
-//   },
-//   production: {
-//     client: "pg",
-//     connection: {
-//       connectionString: process.env.DATABASE_URL,
-//       ssl: { rejectUnauthorized: false },
-//     },
-//     migrations: {
-//       directory: "./server/db/migrations",
-//     },
-//   },
-// };

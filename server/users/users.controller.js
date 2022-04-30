@@ -16,15 +16,16 @@ module.exports = {
     const { id, username, firstName, lastName, email, password } = req.body;
 
     const user = {
-      id,
       username,
-      firstName,
-      lastName,
+      first_name: firstName,
+      last_name: lastName,
       email,
       password
     };
 
     id ? await usersModel.update(id, user)
        : await usersModel.create(user);
+    
+    res.status(200).send();
   }
 };

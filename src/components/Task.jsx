@@ -1,20 +1,10 @@
 import React, { useState, useEffect } from "react";
 
 function Task({ date, setShowTask, setNewToDo }) {
-  const [task, setTasklist] = useState("");
+  const [task, setTask] = useState("");
   const [type, setType] = useState("todo");
   const [time, setTime] = useState("");
   const [todos, setTodos] = useState([]);
-  // const initialState = {
-  //   task: task,
-  //   type: type,
-  //   date: date.substring(0, 10),
-  //   time: time,
-  // };
-
-  const getNewTask = (event) => {
-    setTasklist(event.target.value);
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -25,9 +15,7 @@ function Task({ date, setShowTask, setNewToDo }) {
       date: date.substring(0, 10),
       time: time,
     };
-
-    setTodos((todos) => [...todos, newToDo]);
-    setShowTask(false);
+    setTodos([...todos, newToDo]);
     setNewToDo(true);
   };
 
@@ -35,24 +23,11 @@ function Task({ date, setShowTask, setNewToDo }) {
     console.log(todos);
   }, [todos]);
 
-  const handleUpdateTask = (index) => {
-    let newTodos = todos.map((todo, todoIndex) => {
-      if (todoIndex === index) {
-        todo.isCompleted = !todo.isCompleted;
-      }
-      console.log(task, todo, type);
-      return todo;
-    });
-    setTodos(newTodos);
-  };
-
   return (
     <>
       <div className="task">
         <h2>Task list</h2>
-        <p>
-          add your task below
-        </p>
+        <p>add your task below</p>
         <p>Selected Date: {date.substring(0, 10) || "failed"}</p>
 
         <div className="form-area">
@@ -71,34 +46,21 @@ function Task({ date, setShowTask, setNewToDo }) {
             <input
               value={task}
               placeholder="Add New Task"
-              onChange={getNewTask}
+              onChange={(e) => {
+                setTask(e.target.value);
+              }}
             />
 
             <button type="submit">Add</button>
-            <button
-              onClick={() => {
-                setShowTask(false);
-              }}
-            >
-              Cancel
-            </button>
           </form>
-        </div>
-
-        {/* {todos.map((todo, index) => (
-          <div
-            className="to-do-list"
-            key={index}
-            style={
-              todo.isCompleted === true
-                ? { textDecorationLine: "line-through" }
-                : {}
-            }
+          <button
+            onClick={() => {
+              setShowTask(false);
+            }}
           >
-            <span onClick={() => handleUpdateTask(index)}>&#x1F44D;</span>
-            {todo.task}
-          </div>
-        ))} */}
+            Cancel
+          </button>
+        </div>
       </div>
     </>
   );

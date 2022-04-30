@@ -16,15 +16,16 @@ module.exports = {
     const { id, userId, docId, taskId, eventId, dateTime } = req.body;
 
     const schedule = {
-      id,
       userId,
       docId,
       taskId,
       eventId,
-      dateTime
+      date_time: dateTime
     };
 
     id ? await schedulesModel.update(id, schedule)
        : await schedulesModel.create(schedule);
+
+    res.status(200).send();
   }
 };

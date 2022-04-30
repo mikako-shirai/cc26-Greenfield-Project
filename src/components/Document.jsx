@@ -1,16 +1,14 @@
 import React from "react";
 import Search from "./Searchbtn.jsx";
 
-
 function Document() {
-
-  const sampleDocument =[
-    {id:1, url:"https://www.codechrysalis.io/"},
-    {id:2, url:"https://www.codechrysalis.io/"},
-    {id:3, url:"https://www.codechrysalis.io/"},
-    {id:4, url:"https://www.codechrysalis.io/"},
-    {id:5, url:"https://www.codechrysalis.io/"},
-  ]
+  const sampleDocument = [
+    { id: 1, url: "https://www.codechrysalis.io/" },
+    { id: 2, url: "https://www.codechrysalis.io/" },
+    { id: 3, url: "https://www.codechrysalis.io/" },
+    { id: 4, url: "https://www.codechrysalis.io/" },
+    { id: 5, url: "https://www.codechrysalis.io/" },
+  ];
 
   return (
     <div className="documents-page">
@@ -33,20 +31,20 @@ function Document() {
 
         <h3 className="documents-page-title">search from document below</h3>
 
-        <Search className="serchbar"/>
-        
+        <Search className="serchbar" />
+
         <div className="Document-list">
           <h3 className="documents-page-title">your documents</h3>
-        {sampleDocument.map((elem)=>(
-          <table className="table">
-            <tbody>
-              <tr>
-                <td>{elem.id}</td>
-                <td>{elem.url}</td>
-              </tr>
-            </tbody>
-          </table>
-        ))}
+          {sampleDocument.map((elem, index) => (
+            <table key={index} className="table">
+              <tbody>
+                <tr>
+                  <td>{elem.id}</td>
+                  <td>{elem.url}</td>
+                </tr>
+              </tbody>
+            </table>
+          ))}
         </div>
       </div>
     </div>

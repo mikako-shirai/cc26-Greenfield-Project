@@ -8,45 +8,57 @@ import ToDo from "./ToDo";
 
 function App() {
   const [selectedDate, setSelectedDate] = useState(null);
-  const [showCalendar, setShowCalendar] = useState(false);
-  const [showDocument, setShowDocument] = useState(false);
   const [showTask, setShowTask] = useState(false);
-  const [showToDo, setShowToDo] = useState(false);
-  const [showEvent, setShowEvent] = useState(false);
+
+  const [showCalendarPage, setShowCalendarPage] = useState(false);
+  const [showDocumentPage, setShowDocumentPage] = useState(false);
+  const [showToDoPage, setShowToDoPage] = useState(false);
+  const [showEventPage, setShowEventPage] = useState(false);
+
+  const hideEverything = () => {
+    setShowCalendarPage(false);
+    setShowDocumentPage(false);
+    setShowToDoPage(false);
+    setShowEventPage(false);
+  };
 
   const displayCalender = () => {
-    setShowCalendar(true);
+    hideEverything();
+    setShowCalendarPage(true);
   };
   const displayDocument = () => {
-    setShowDocument(true);
+    hideEverything();
+    setShowDocumentPage(true);
   };
   const displayToDo = () => {
-      setShowToDo(true);
-    };
+    hideEverything();
+    setShowToDoPage(true);
+  };
   const displayEvent = () => {
-    setShowEvent(true);
+    hideEverything();
+    setShowEventPage(true);
   };
 
   return (
     <div className="app">
-      <Navbar 
-      displayCalender={displayCalender}
-      displayDocument={displayDocument}
-      displayToDo={displayToDo}
-      displayEvent={displayEvent} 
+      <Navbar
+        displayCalender={displayCalender}
+        displayDocument={displayDocument}
+        displayToDo={displayToDo}
+        displayEvent={displayEvent}
       />
-      
-      <div>
+
+      {/* <div className="mainfield">
         <CalendarComponent
           selectedDate={selectedDate}
           setSelectedDate={setSelectedDate}
           showTask={showTask}
           setShowTask={setShowTask}
         />
-      </div>
+      </div> */}
 
       <div className="content-wrapper">
-        {showCalendar && (
+        {showCalendarPage && (
           <CalendarComponent
             selectedDate={selectedDate}
             setSelectedDate={setSelectedDate}
@@ -54,9 +66,11 @@ function App() {
             setShowTask={setShowTask}
           />
         )}
-        {showDocument && <Document />}
-        {showToDo && <ToDo />}
-        {showEvent && <Event />}
+        <div className="second-wrapper">
+          {showDocumentPage && <Document />}
+          {showToDoPage && <ToDo />}
+          {showEventPage && <Event />}
+        </div>
       </div>
     </div>
   );

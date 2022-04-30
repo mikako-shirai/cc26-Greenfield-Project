@@ -16,13 +16,14 @@ module.exports = {
     const { id, eventName, description, dateTime } = req.body;
 
     const event = {
-      id,
-      eventName,
+      event_name: eventName,
       description,
-      dateTime
+      date_time: dateTime
     };
 
     id ? await eventsModel.update(id, event)
        : await eventsModel.create(event);
+    
+    res.status(200).send();
   }
 };

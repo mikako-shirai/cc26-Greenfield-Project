@@ -16,12 +16,13 @@ module.exports = {
     const { id, doc, dateTime } = req.body;
 
     const docObj = {
-      id,
       doc,
-      dateTime
+      date_time: dateTime
     };
 
     id ? await docsModel.update(id, docObj)
        : await docsModel.create(docObj);
+    
+    res.status(200).send();
   }
 };

@@ -10,7 +10,7 @@ function App() {
   const [selectedDate, setSelectedDate] = useState(null);
   const [showTask, setShowTask] = useState(false);
 
-  const [showCalendarPage, setShowCalendarPage] = useState(false);
+  const [showCalendarPage, setShowCalendarPage] = useState(true);
   const [showDocumentPage, setShowDocumentPage] = useState(false);
   const [showToDoPage, setShowToDoPage] = useState(false);
   const [showEventPage, setShowEventPage] = useState(false);

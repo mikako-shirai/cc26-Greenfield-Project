@@ -26,11 +26,10 @@ function Task({ date, setShowTask, setNewToDo }) {
   return (
     <>
       <div className="task">
-        <h2>Task list</h2>
-        <p>add your task below</p>
-        <p>Selected Date: {date.substring(0, 10) || "failed"}</p>
-
         <div className="form-area">
+          <h2>Task list</h2>
+          <p>add your task below</p>
+          <p>Selected Date: {date.substring(0, 10) || "failed"}</p>
           <form className="documentform" onSubmit={handleSubmit}>
             <input
               type="time"

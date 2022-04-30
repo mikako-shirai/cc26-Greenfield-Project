@@ -98,6 +98,7 @@ li:active {
   display: flex;
   flex-direction: column;
   width: 100%;
+  background: #fffdfb;
   border: 1px solid #000000;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.125em;
@@ -120,7 +121,6 @@ li:active {
 
 .react-calendar__tile {
   height: 10vh;
-
   background-color: white;
 }
 

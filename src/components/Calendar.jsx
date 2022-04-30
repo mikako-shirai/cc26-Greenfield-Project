@@ -15,11 +15,12 @@ function CalendarComponent({
   };
 
   useEffect(() => {
-    console.log("WORKING", newToDo);
     setNewToDo(false);
     setShowTask(false);
   }, [newToDo]);
-  //When you call (onCLickDay) in the calendar it will display Task modal, Isosstringify current date and send it to Task.jsx component
+
+  //When you call (onCLickDay) in the calendar it will display Task modal,
+  // Isosstringify current date, and send it to Task.jsx component
   return (
     <div className="calendar">
       {showTask && (

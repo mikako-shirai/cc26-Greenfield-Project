@@ -8,5 +8,4 @@ exports.seed = async function(knex) {
   await knex('tasks').del();
   await knex('docs').del();
   await knex('user').del();
- 
 };

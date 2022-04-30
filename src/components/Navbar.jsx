@@ -1,6 +1,6 @@
 import React from "react";
 import Search from "./Searchbtn.jsx";
-import Logo from "./images/Morpho.png";
+import Logo from "../images/Morpho.png";
 
 function Navbar({
   displayCalender,

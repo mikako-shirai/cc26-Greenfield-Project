@@ -22,7 +22,7 @@ function Document() {
             <option value="week4">week4</option>
           </select>
           <select className="documentform-name">
-            <option value="instructor">instruntors</option>
+            <option value="instructor">instructors</option>
             <option value="student">students</option>
           </select>
           <input type="url" placeholder="URL here" />

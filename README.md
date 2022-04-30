@@ -31,7 +31,7 @@ Enjoy your experience using **Morpho**!
 ## Issues  
 Current Issues to Fix:  
 - [x] ~~Buttons create duplicates to the right.~~  
-- [x] ~~Front-end unable to pass data to the back-end.~~  
+- [ ] ~~Front-end unable to pass data to the back-end.~~  Working on localhost, but not working on Heroku
 - [ ] Create more tests.  
   
   

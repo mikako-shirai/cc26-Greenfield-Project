@@ -233,7 +233,8 @@ li:hover, li:active {
   text-align: center;
   color: #232323;
   width: 60vw;
-  height: 100vh;
+  height: 90vh;
+  overflow: auto;
 }
 
 .events-title {
@@ -262,6 +263,9 @@ li:hover, li:active {
   padding: 5%;
   border-radius: 4px;
   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.119);
+}
+.event-selected {
+  background: #b8d6f5;
 }
 
 .search-event * {

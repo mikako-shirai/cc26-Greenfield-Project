@@ -4,12 +4,11 @@ import axios from "axios";
 function Event() {
   const [events, setEvents] = useState([]);
   const [event, setEvent] = useState({});
-  const [newEvent, setNewEvent] = useState({});
 
   const getAllEvents = async () => {
     const res = await axios.get("/events");
     const eventsAll = res.data;
-    setEvents(eventsAll);
+    setEvents(eventsAll.reverse());
   };
 
   const getEventById = async (e) => {
@@ -28,7 +27,6 @@ function Event() {
     }
     await axios.post("/events/save", testEvent);
     await getAllEvents();
-    setNewEvent(testEvent);
   };
 
   useEffect(() => {
@@ -72,20 +70,23 @@ function Event() {
         <div onClick={addNewEvent} className="event-btn">Add New Event</div>
       </div>
 
-      {event.id ? <div className="event-content">
+      {event.id ? <div className="event-content event-selected">
         <div>Selected Event</div>
         <div>Event Name : {event.eventName}</div>
-        <div>Description : {event.description}</div>
         <div>Event Time : {event.dateTime.slice(0,10)}</div>
+        <div>Description : {event.description}</div>
       </div> : ""}
 
-      {newEvent.eventName ? <div className="event-content">
-        <div>New Event</div>
-        <div>Event Name : {newEvent.eventName}</div>
-        <div>Description : {newEvent.description}</div>
-        <div>Event Time : {newEvent.dateTime.slice(0,10)}</div>
-      </div> : ""}
-
+      {events.map((event, index) => {
+        return (
+          <div key={index} className="event-content">
+            <div>Event {index + 1}</div>
+            <div>Event Name : {event.eventName}</div>
+            <div>Event Time : {event.dateTime.slice(0,10)}</div>
+            <div>Description : {event.description}</div>
+          </div>
+        );
+      })}
     </div>
   );
 }

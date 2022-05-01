@@ -282,7 +282,8 @@ li:active {
   margin-left: 0.3vw;
 }
 
-.event-btn, .event-btn-show {
+.event-btn,
+.event-btn-show {
   background: #dddddd;
   padding: 5px;
   border-radius: 6px;

@@ -101,6 +101,8 @@ body {
 
 .documents {
   color: #232323;
+  height: 90vh;
+  overflow: auto;
 }
 
 .documents-title {
@@ -130,6 +132,11 @@ body {
 
 td {
   border: 1px solid black;
+}
+
+.td-id {
+  width: 7%;
+  text-align: center;
 }
 
 /* -------------------------------------- Navbar */
@@ -219,6 +226,11 @@ li:active {
 }
 
 /* -------------------------------------- ToDo */
+
+.todo {
+  height: 90vh;
+  overflow: auto;
+}
 
 .todo-title {
   color: #464242;

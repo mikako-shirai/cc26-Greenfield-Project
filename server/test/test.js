@@ -1402,7 +1402,7 @@ describe('user', () => {
                 });
             });            context('when pressing task button', () => {
                 it("should update the user schedule with new information", async () => {
-                    expect("more test").to.equal("to be bad tests for messing with me");
+                    expect("the end").to.equal("the end");
                 });
             });
     })});

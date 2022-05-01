@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import eventsModel from "../../server/events/events.model";
 
 function Task({ date, setShowTask, setNewToDo }) {
   const [task, setTask] = useState("");

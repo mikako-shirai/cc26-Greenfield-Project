@@ -12,8 +12,6 @@ describe('API Routes', function () {
 
 });
 
-// const usersModel = require("../server/users/users.model");
-//const USER_TABLE = usersModel.USER_TABLE;
 describe("User Table", () => {
     describe("setup", () => {
         it("should connect to database", () => {

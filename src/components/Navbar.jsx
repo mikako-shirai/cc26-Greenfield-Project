@@ -1,14 +1,12 @@
 import React from "react";
-import Search from "./Searchbtn.jsx";
 
-function Navbar({
-  displayCalender,
-  displayDocument,
-  displayToDo,
-  displayEvent,
-}) {
+import Search from "./Searchbtn.jsx";
+import Logo from "../images/Morpho.png";
+
+function Navbar({ displayCalender, displayDocument, displayToDo, displayEvent }) {
   return (
     <div className="navbar">
+      <img src={Logo} alt="logo" className="logo" />
       <Search />
       <ul>
         <li onClick={displayCalender}>Calendar</li>

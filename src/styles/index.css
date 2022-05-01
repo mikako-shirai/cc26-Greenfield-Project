@@ -6,97 +6,47 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
+  background: #fffaec;
 }
+
+/* -------------------------------------- App */
 
 .app {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 .content-wrapper {
+  flex: 1;
   display: flex;
-  justify-content: center;
-  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5vh;
 }
 
-.mainfield {
-  display: flex;
-  flex-direction: column;
-}
-.task {
-  display: flex;
-  flex-direction: column;
-  position: fixed;
+/* -------------------------------------- Calendar */
+
+.calendar-title {
   text-align: center;
-  background-color: rgb(219, 231, 255);
-  gap: 1vh;
-  height: 500px;
-  width: 500px;
-}
-
-/* .navbar-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-} */
-
-/* .calendar-wrapper {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
-
-/* .content-wrapper {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
-
-.navbar {
-  display: flex;
-  flex-direction: column;
-  background-color: beige;
-  width: fit-content;
-  height: 150vh;
-  align-items: center;
-}
-
-.navbar * {
-  margin-bottom: 10px;
-  padding: 10px;
-}
-
-/* .calendar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
-
-li {
-  color: rgb(97, 111, 129);
-  background-color: rgb(219, 231, 255);
-  text-decoration-line: none;
-  list-style-type: none;
-}
-
-li:hover {
-  background-color: rgb(181, 254, 255);
-}
-
-li:active {
-  background-color: rgb(181, 254, 255);
+  margin-bottom: 6vh;
 }
 
 .react-calendar {
   display: flex;
   flex-direction: column;
   width: 100%;
-  border: 1px solid #000000;
+  background: #fffdfb;
+  outline: 2px solid #888888;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.125em;
   font-size: 2vh;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.119);
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  text-align: center;
+  margin-top: 0.5vh;
+  margin-bottom: 0.5vh;
 }
 
 .react-calendar__navigation {
@@ -106,31 +56,38 @@ li:active {
 
 .react-calendar__navigation__label {
   font-weight: bold;
+  border-style: none;
+  border-radius: 0%;
+  outline: 1px solid #5d5d5d;
 }
 
 .react-calendar__navigation__arrow {
   flex-grow: 0.333;
   font-size: 2vh;
+  border-style: none;
+  border-radius: 0%;
+  outline: 1px solid #5d5d5d;
 }
 
 .react-calendar__tile {
   height: 10vh;
-
-  background-color: white;
+  background: white;
+  border-style: none;
+  outline: 1px solid #5d5d5d;
 }
 
 .react-calendar__tile--active {
-  background: #60aaff;
+  background: #9dc7f7;
   color: white;
 }
 
 .react-calendar__tile:hover {
-  background: #c1deff;
+  background: #cae1fa;
   color: white;
 }
 
 .react-calendar__tile--now {
-  background: #ffff76;
+  background: #faf9b2;
   color: #000000;
 }
 
@@ -140,49 +97,238 @@ li:active {
   background: #ff983d;
 }
 
-.ToDo-component {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+/* -------------------------------------- Documents */
+
+.documents {
+  color: #232323;
+  height: 90vh;
+  overflow: auto;
 }
 
-.ToDo-title {
-  background: #fff8e8;
-  color: #464242;
+.documents-title {
   text-align: center;
+  margin-bottom: 4vh;
 }
 
-.ToDo-wrapper {
+.show-document {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
 }
 
-.ToDo-item {
+.document-table {
   padding: 0.5em 1em;
   margin: 2em 0;
-  color: #232323;
-  background: #fff8e8;
-  border-left: solid 10px #ffc06e;
-}
-
-.documents-page {
-  color: #232323;
-  background: #fff8e8;
-}
-.documents-page-title {
-  text-align: center;
-}
-.serchbar {
-  text-align: center;
-}
-
-.table {
-  padding: 0.5em 1em;
-  margin: 2em 0;
+  width: 100%;
   color: #5d627b;
   background: white;
   border-top: solid 5px #5d627b;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.119);
+}
+
+.doc-selected {
+  border-top: solid 5px #32629a;
+  background: #fafdff;
 }
 
 td {
   border: 1px solid black;
+}
+
+.td-id {
+  width: 7%;
+  text-align: center;
+}
+
+/* -------------------------------------- Navbar */
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  background: beige;
+  height: 100vh;
+  width: 35vh;
+  align-items: center;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.059);
+}
+
+.navbar * {
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.logo {
+  height: auto;
+  width: 12vw;
+  min-width: 150px;
+  max-width: 250px;
+  margin-top: 1vh;
+}
+
+ul {
+  width: 100%;
+}
+
+li {
+  color: rgb(97, 111, 129);
+  background: rgb(219, 231, 255);
+  text-decoration-line: none;
+  text-align: center;
+  list-style-type: none;
+}
+
+li:hover {
+  background: rgb(181, 254, 255);
+}
+
+li:active {
+  background: rgb(144, 205, 255);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+/* -------------------------------------- Searchbtn */
+
+.searchbar {
+  text-align: center;
+}
+
+/* -------------------------------------- Tasks */
+
+.tasks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  text-align: center;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.tasks-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #bcd4ef;
+  height: 60vh;
+  width: 50vw;
+  border-radius: 11px;
+}
+
+.tasks-form-inner {
+  margin-top: -10vh;
+}
+
+/* -------------------------------------- ToDo */
+
+.todo {
+  height: 90vh;
+  overflow: auto;
+}
+
+.todo-title {
+  color: #464242;
+  text-align: center;
+}
+
+.show-todo {
+  display: flex;
+  justify-content: center;
+}
+
+.todo-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-item {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  color: #232323;
+  background: #ffedc3;
+  border-left: solid 10px #ffc06e;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.119);
+}
+
+.todo-selected {
+  background: #fce3a7;
+  border-left: solid 10px #f5ad4f;
+}
+
+/* -------------------------------------- Events */
+
+.events {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #232323;
+  width: 60vw;
+  height: 90vh;
+  overflow: auto;
+}
+
+.events-title {
+  color: #464242;
+  text-align: center;
+}
+
+.search-event {
+  display: flex;
+  flex-direction: row;
+}
+
+.show-event {
+  display: flex;
+  flex-direction: row;
+  margin-top: 3%;
+}
+
+.event-content {
+  background: #d5e3f2;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: 13%;
+  margin-top: 5%;
+  padding: 5%;
+  border-radius: 4px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.119);
+}
+.event-selected {
+  background: #b8d6f5;
+}
+
+.search-event * {
+  margin-top: 5%;
+}
+.show-event * {
+  margin-right: 0.3vw;
+  margin-left: 0.3vw;
+}
+
+.event-btn,
+.event-btn-show {
+  background: #dddddd;
+  padding: 5px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.event-btn-show {
+  margin-left: -0.3vw;
+  border-radius: 0px 6px 6px 0px;
+}
+
+/* -------------------------------------- item */
+
+.item-title {
+  color: #32629a;
+  font-weight: 800;
+  margin-bottom: 1vh;
 }

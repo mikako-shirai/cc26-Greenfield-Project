@@ -1,27 +1,23 @@
-import Calendar from "react-calendar";
 import React, { useState, useEffect } from "react";
+import Calendar from "react-calendar";
+
 import Task from "./Task.jsx";
 
-function CalendarComponent({
-  selectedDate,
-  setSelectedDate,
-  showTask,
-  setShowTask,
-}) {
+function CalendarComponent({ selectedDate, setSelectedDate, showTask, setShowTask,}) {
   const [newToDo, setNewToDo] = useState(false);
-  //Displays modal and Pass Selected Date
+
   const openWindowForDate = (date) => {
     setSelectedDate(date.toISOString());
   };
 
   useEffect(() => {
-    console.log("WORKING", newToDo);
     setNewToDo(false);
     setShowTask(false);
   }, [newToDo]);
-  //When you call (onCLickDay) in the calendar it will display Task modal, Isosstringify current date and send it to Task.jsx component
+
   return (
-    <div className="calendar">
+    <div>
+      <h2 className="calendar-title">Calendar</h2>
       {showTask && (
         <Task
           date={selectedDate}
@@ -42,6 +38,4 @@ function CalendarComponent({
   );
 }
 
-//tileContent prop allows us to add item to specific date
-// onclick gets selected date
 export default CalendarComponent;

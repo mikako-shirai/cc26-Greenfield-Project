@@ -3,23 +3,22 @@
  * @returns { Promise<void> }
  */
 exports.up = function (knex) {
-    return knex.schema
-        .createTable("user", function (table) {
-            table.increments("id")
-                .primary(); // Set this column as the primary key
-            table.string("email", 32)
-                .unique() // This is a constraint that prevents duplicate emails in the table
-                .notNullable()
-                .index(); 
-            table.string("username", 32)
-                .unique()
-                .notNullable();
-            table.string("first_name", 32).notNullable();
-            table.string("last_name", 32).notNullable();
-            table.string("password", 32)
-                .notNullable();
-
-        })
+  return knex.schema
+    .createTable("user", function (table) {
+      table.increments("id")
+        .primary();
+      table.string("email", 32)
+        .unique()
+        .notNullable()
+        .index(); 
+      table.string("username", 32)
+        .unique()
+        .notNullable();
+      table.string("first_name", 32).notNullable();
+      table.string("last_name", 32).notNullable();
+      table.string("password", 32)
+        .notNullable();
+    })
 };
 
 /**
@@ -27,5 +26,5 @@ exports.up = function (knex) {
  * @returns { Promise<void> }
  */
 exports.down = function (knex) {
-    knex.schema.dropTable("user");
+  knex.schema.dropTable("user");
 };

@@ -1,16 +1,17 @@
-import { React, useState } from "react";
-import "../styles/index.css";
+import React, { useState } from "react";
+
 import Navbar from "./Navbar.jsx";
 import CalendarComponent from "./Calendar.jsx";
 import Document from "./Document";
-import Event from "./Event.jsx";
 import ToDo from "./ToDo";
+import Event from "./Event.jsx";
+import "../styles/index.css";
 
 function App() {
   const [selectedDate, setSelectedDate] = useState(null);
   const [showTask, setShowTask] = useState(false);
 
-  const [showCalendarPage, setShowCalendarPage] = useState(false);
+  const [showCalendarPage, setShowCalendarPage] = useState(true);
   const [showDocumentPage, setShowDocumentPage] = useState(false);
   const [showToDoPage, setShowToDoPage] = useState(false);
   const [showEventPage, setShowEventPage] = useState(false);
@@ -48,15 +49,6 @@ function App() {
         displayEvent={displayEvent}
       />
 
-      {/* <div className="mainfield">
-        <CalendarComponent
-          selectedDate={selectedDate}
-          setSelectedDate={setSelectedDate}
-          showTask={showTask}
-          setShowTask={setShowTask}
-        />
-      </div> */}
-
       <div className="content-wrapper">
         {showCalendarPage && (
           <CalendarComponent
@@ -66,7 +58,8 @@ function App() {
             setShowTask={setShowTask}
           />
         )}
-        <div className="second-wrapper">
+
+        <div>
           {showDocumentPage && <Document />}
           {showToDoPage && <ToDo />}
           {showEventPage && <Event />}

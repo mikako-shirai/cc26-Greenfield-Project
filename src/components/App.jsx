@@ -1,10 +1,11 @@
-import { React, useState } from "react";
-import "../styles/index.css";
+import React, { useState } from "react";
+
 import Navbar from "./Navbar.jsx";
 import CalendarComponent from "./Calendar.jsx";
 import Document from "./Document";
-import Event from "./Event.jsx";
 import ToDo from "./ToDo";
+import Event from "./Event.jsx";
+import "../styles/index.css";
 
 function App() {
   const [selectedDate, setSelectedDate] = useState(null);

@@ -1,18 +1,12 @@
 import React from "react";
+
 import Search from "./Searchbtn.jsx";
 import Logo from "../images/Morpho.png";
 
-function Navbar({
-  displayCalender,
-  displayDocument,
-  displayToDo,
-  displayEvent,
-}) {
+function Navbar({ displayCalender, displayDocument, displayToDo, displayEvent }) {
   return (
     <div className="navbar">
-      <div className="logo-wraper">
-        <img src={Logo} alt="logo" className="logo" />
-      </div>
+      <img src={Logo} alt="logo" className="logo" />
       <Search />
       <ul>
         <li onClick={displayCalender}>Calendar</li>

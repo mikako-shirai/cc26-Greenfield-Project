@@ -18,12 +18,11 @@ module.exports = {
     const event = {
       event_name: eventName,
       description,
-      date_time: dateTime
+      date_time: dateTime,
     };
 
-    id ? await eventsModel.update(id, event)
-       : await eventsModel.create(event);
-    
+    id ? await eventsModel.update(id, event) : await eventsModel.create(event);
+
     res.status(200).send();
-  }
+  },
 };

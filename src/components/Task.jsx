@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+// import eventsModel from "../../server/events/events.model";
 
 function Task({ date, setShowTask, setNewToDo }) {
   const [task, setTask] = useState("");
-  const [type, setType] = useState("toDo");
+  const [type, setType] = useState("ToDo");
   const [time, setTime] = useState("");
   const [title, setTitle] = useState("");
   const [toDos, setToDos] = useState([]);
@@ -12,7 +13,7 @@ function Task({ date, setShowTask, setNewToDo }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const newToDo = {
-      description: task,
+      task: task,
       title: title,
       type: type,
       date: passedDate,
@@ -23,20 +24,47 @@ function Task({ date, setShowTask, setNewToDo }) {
     setNewToDo(true);
   };
 
+  const validateInput = () => {
+    if (toDos.length === 0) return;
+    const dataType = toDos[0].type;
+    if (dataType === "document") addNewDoc();
+    if (dataType === "ToDo") addNewToDo();
+    if (dataType === "event") addNewEvent();
+  };
+
+  const addNewDoc = async () => {
+    const input = toDos[0];
+    const newEvent = {
+      doc: input.task,
+      dateTime: `${input.date} ${input.time}`,
+    };
+
+    await axios.post(`/docs/save`, newEvent);
+  };
+
+  const addNewToDo = async () => {
+    const input = toDos[0];
+    const newEvent = {
+      taskName: input.title,
+      taskInfo: input.task,
+      dateTime: `${input.date} ${input.time}`,
+    };
+    await axios.post(`/tasks/save`, newEvent);
+  };
+
   const addNewEvent = async () => {
     const input = toDos[0];
     const newEvent = {
       eventName: input.title,
-      description: input.description,
+      description: input.task,
       dateTime: `${input.date} ${input.time}`,
     };
-    console.log(newEvent);
-    await axios.post("/events/save", newEvent);
+    await axios.post(`/events/save`, newEvent);
   };
 
   useEffect(() => {
     console.log(toDos);
-    addNewEvent();
+    validateInput();
   }, [toDos]);
 
   return (

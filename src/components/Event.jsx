@@ -4,6 +4,7 @@ import axios from "axios";
 function Event() {
   const [events, setEvents] = useState([]);
   const [event, setEvent] = useState({});
+  const [newEvent, setNewEvent] = useState({});
 
   const getAllEvents = async () => {
     const res = await axios.get("/events");
@@ -16,6 +17,7 @@ function Event() {
     const id = e.target.value;
     const res = await axios.get(`/events/view/${id}`);
     const selectedEvent = res.data;
+    setNewEvent({});
     setEvent(selectedEvent);
   };
 
@@ -27,6 +29,8 @@ function Event() {
     }
     await axios.post("/events/save", testEvent);
     await getAllEvents();
+    setEvent({});
+    setNewEvent(testEvent);
   };
 
   useEffect(() => {
@@ -77,10 +81,17 @@ function Event() {
         <div>Description : {event.description}</div>
       </div> : ""}
 
+      {newEvent.eventName ? <div className="event-content event-selected">
+        <div>New Event</div>
+        <div>Event Name : {newEvent.eventName}</div>
+        <div>Event Time : {newEvent.dateTime.slice(0,10)}</div>
+        <div>Description : {newEvent.description}</div>
+      </div> : ""}
+
       {events.map((event, index) => {
         return (
           <div key={index} className="event-content">
-            <div>Event {index + 1}</div>
+            <div>Event</div>
             <div>Event Name : {event.eventName}</div>
             <div>Event Time : {event.dateTime.slice(0,10)}</div>
             <div>Description : {event.description}</div>

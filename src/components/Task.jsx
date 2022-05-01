@@ -78,7 +78,7 @@ function Task({ date, setShowTask, setNewToDo }) {
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            placeholder="TITLE"
+            placeholder="Title"
           />
           <input
             type="time"
@@ -87,11 +87,12 @@ function Task({ date, setShowTask, setNewToDo }) {
             onChange={(e) => setTime(e.target.value)}
           />
           <select value={type} onChange={(e) => setType(e.target.value)}>
+            <option hidden>-- item --</option>
             <option>ToDo</option>
             <option>document</option>
             <option>event</option>
           </select>
-          <input
+          <textarea
             value={task}
             placeholder="Add New Task"
             onChange={(e) => {

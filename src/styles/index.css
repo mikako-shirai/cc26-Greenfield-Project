@@ -222,7 +222,20 @@ li:active {
 }
 
 .tasks-form-inner {
-  margin-top: -10vh;
+  display: flex;
+  flex-flow: column;
+  margin-top: -4vh;
+}
+
+.tasks-form-inner input,
+.tasks-form-inner select,
+.tasks-form-inner textarea,
+.tasks-form-inner button {
+  margin-top: 2%;
+  padding: 4px;
+  border-style: none;
+  border-radius: 3px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.119);
 }
 
 /* -------------------------------------- ToDo */

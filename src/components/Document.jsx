@@ -63,8 +63,8 @@ function Document() {
           <table className="document-table doc-selected">
             <tbody>
               <tr>
-                <td>{doc.id}</td>
-                <td>{doc.doc}</td>
+                <td className="td-id">{doc.id}</td>
+                <td className="td-url">{doc.doc}</td>
               </tr>
             </tbody>
           </table>
@@ -76,8 +76,8 @@ function Document() {
             <table key={index} className="document-table">
               <tbody>
                 <tr>
-                  <td>{doc.id}</td>
-                  <td>{doc.doc}</td>
+                  <td className="td-id">{doc.id}</td>
+                  <td className="td-url">{doc.doc}</td>
                 </tr>
               </tbody>
             </table>

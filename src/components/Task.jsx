@@ -34,22 +34,22 @@ function Task({ date, setShowTask, setNewToDo }) {
 
   const addNewDoc = async () => {
     const input = toDos[0];
-    const newEvent = {
+    const newDoc = {
       doc: input.task,
       dateTime: `${input.date} ${input.time}`,
     };
 
-    await axios.post(`/docs/save`, newEvent);
+    await axios.post(`/docs/save`, newDoc);
   };
 
   const addNewToDo = async () => {
     const input = toDos[0];
-    const newEvent = {
+    const newToDo = {
       taskName: input.title,
       taskInfo: input.task,
       dateTime: `${input.date} ${input.time}`,
     };
-    await axios.post(`/tasks/save`, newEvent);
+    await axios.post(`/tasks/save`, newToDo);
   };
 
   const addNewEvent = async () => {

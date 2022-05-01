@@ -12,7 +12,7 @@ function ToDo() {
   };
 
   const getTodoById = async (e) => {
-    e.prevenDefault();
+    e.preventDefault();
     const id = e.target.value;
     const res = await axios.get(`/tasks/view/${id}`);
     const selectedTodo = res.data;
@@ -28,7 +28,7 @@ function ToDo() {
   }, [todos, todo]);
 
   return (
-    <div>
+    <div className="todo">
       <h2 className="todo-title">To Do List</h2>
 
       <div className="show-todo">
@@ -44,7 +44,7 @@ function ToDo() {
       {todo.id ?
         <div className="todo-item todo-selected">
           <div className="item-title">{todo.taskName}</div>
-          <div>Due Time : {todo.dateTime}</div>
+          <div>Due Time : {todo.dateTime.slice(0,10)}</div>
           <div>Description : {todo.taskInfo}</div>
         </div>
       : ""}
@@ -53,7 +53,7 @@ function ToDo() {
         {todos.map((todo, index) => (
           <div key={index} className="todo-item">
             <div className="item-title">{todo.taskName}</div>
-            <div>Due Time : {todo.dateTime}</div>
+            <div>Due Time : {todo.dateTime.slice(0,10)}</div>
             <div>Description : {todo.taskInfo}</div>
           </div>
         ))}

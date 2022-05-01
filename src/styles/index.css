@@ -108,6 +108,11 @@ body {
   margin-bottom: 4vh;
 }
 
+.show-document {
+  display: flex;
+  justify-content: center;
+}
+
 .document-table {
   padding: 0.5em 1em;
   margin: 2em 0;
@@ -116,6 +121,11 @@ body {
   background: white;
   border-top: solid 5px #5d627b;
   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.119);
+}
+
+.doc-selected {
+  border-top: solid 5px #32629a;
+  background: #fafdff;
 }
 
 td {
@@ -127,7 +137,6 @@ td {
 .navbar {
   display: flex;
   flex-direction: column;
-  /* background: rgb(239, 247, 219); */
   background: beige;
   height: 100vh;
   width: 35vh;
@@ -216,6 +225,11 @@ li:active {
   text-align: center;
 }
 
+.show-todo {
+  display: flex;
+  justify-content: center;
+}
+
 .todo-wrapper {
   display: flex;
   flex-direction: column;
@@ -228,6 +242,11 @@ li:active {
   background: #ffedc3;
   border-left: solid 10px #ffc06e;
   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.119);
+}
+
+.todo-selected {
+  background: #fce3a7;
+  border-left: solid 10px #f5ad4f;
 }
 
 /* -------------------------------------- Events */
@@ -292,4 +311,12 @@ li:active {
 .event-btn-show {
   margin-left: -0.3vw;
   border-radius: 0px 6px 6px 0px;
+}
+
+/* -------------------------------------- item */
+
+.item-title {
+  color: #32629a;
+  font-weight: 800;
+  margin-bottom: 1vh;
 }

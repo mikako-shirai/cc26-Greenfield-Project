@@ -4,7 +4,6 @@ import axios from "axios";
 function Event() {
   const [events, setEvents] = useState([]);
   const [event, setEvent] = useState({});
-  const [newEvent, setNewEvent] = useState({});
 
   const getAllEvents = async () => {
     const res = await axios.get("/events");
@@ -17,20 +16,7 @@ function Event() {
     const id = e.target.value;
     const res = await axios.get(`/events/view/${id}`);
     const selectedEvent = res.data;
-    setNewEvent({});
     setEvent(selectedEvent);
-  };
-
-  const addNewEvent = async () => {
-    const testEvent = {
-      eventName: 'TEST event',
-      description: 'TEST event',
-      dateTime: '2022-01-20T00:00:00.000Z'
-    }
-    await axios.post("/events/save", testEvent);
-    await getAllEvents();
-    setEvent({});
-    setNewEvent(testEvent);
   };
 
   useEffect(() => {
@@ -58,41 +44,31 @@ function Event() {
             <option value="instructor">instructors</option>
             <option value="student">students</option>
           </select>
+          <input type="text" placeholder="Keyword" />
           <div className="event-btn">Search Event</div>
         </form>
       </div>
 
       <div className="show-event">
-        <select onChange={getEventById} name="eventId" required>
+        <select onChange={getEventById} required>
           <option hidden>-- Event --</option>
           {events.map((event, index) => {
             return <option key={index} value={event.id}>{event.eventName}</option>
           })}
         </select>
         <div className="event-btn-show">Show Event</div>
-
-        <div onClick={addNewEvent} className="event-btn">Add New Event</div>
       </div>
 
       {event.id ? <div className="event-content event-selected">
-        <div>Selected Event</div>
-        <div>Event Name : {event.eventName}</div>
+        <div className="item-title">{event.eventName}</div>
         <div>Event Time : {event.dateTime.slice(0,10)}</div>
         <div>Description : {event.description}</div>
-      </div> : ""}
-
-      {newEvent.eventName ? <div className="event-content event-selected">
-        <div>New Event</div>
-        <div>Event Name : {newEvent.eventName}</div>
-        <div>Event Time : {newEvent.dateTime.slice(0,10)}</div>
-        <div>Description : {newEvent.description}</div>
       </div> : ""}
 
       {events.map((event, index) => {
         return (
           <div key={index} className="event-content">
-            <div>Event</div>
-            <div>Event Name : {event.eventName}</div>
+            <div className="item-title">{event.eventName}</div>
             <div>Event Time : {event.dateTime.slice(0,10)}</div>
             <div>Description : {event.description}</div>
           </div>

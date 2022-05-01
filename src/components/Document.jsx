@@ -1,15 +1,31 @@
-import React from "react";
-
-import Search from "./Searchbtn.jsx";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 function Document() {
-  const sampleDocument = [
-    { id: 1, url: "https://www.codechrysalis.io/" },
-    { id: 2, url: "https://www.codechrysalis.io/" },
-    { id: 3, url: "https://www.codechrysalis.io/" },
-    { id: 4, url: "https://www.codechrysalis.io/" },
-    { id: 5, url: "https://www.codechrysalis.io/" },
-  ];
+  const [docs, setDocs] = useState([]);
+  const [doc, setDoc] = useState({});
+
+  const getAllDocs = async () => {
+    const res = await axios.get("/docs");
+    const docsAll = res.data;
+    setDocs(docsAll.reverse());
+  };
+
+  const getDocById = async (e) => {
+    e.preventDefault();
+    const id = e.target.value;
+    const res = await axios.get(`/docs/view/${id}`);
+    const selectedDoc = res.data;
+    setDoc(selectedDoc);
+  };
+
+  useEffect(() => {
+    getAllDocs();
+  }, []);
+
+  useEffect(() => {
+    console.log(doc);
+  }, [docs, doc]);
 
   return (
     <div className="documents">
@@ -21,27 +37,47 @@ function Document() {
             <option value="week2">week2</option>
             <option value="week3">week3</option>
             <option value="week4">week4</option>
+            <option value="week5">week5</option>
           </select>
           <select>
             <option value="instructor">instructors</option>
             <option value="student">students</option>
           </select>
-          <input type="url" placeholder="URL here" />
-          <input type="submit" value="Add to Document List" />
+          <input type="url" placeholder="URL" />
+          <input type="submit" value="Search Document List" />
         </form>
 
         <h3 className="documents-title">search from document below</h3>
 
-        <Search />
+        <div className="show-document">
+          <select onChange={getDocById} required>
+            <option hidden>-- Document --</option>
+            {docs.map((doc, index) => {
+              return <option key={index} value={doc.id}>{doc.doc}</option>
+            })}
+          </select>
+          <button>Show Document</button>
+        </div>
+
+        {doc.id ?
+          <table className="document-table doc-selected">
+            <tbody>
+              <tr>
+                <td>{doc.id}</td>
+                <td>{doc.doc}</td>
+              </tr>
+            </tbody>
+          </table>
+        : ""}
 
         <div>
           <h3 className="documents-title">your documents</h3>
-          {sampleDocument.map((elem, index) => (
+          {docs.map((doc, index) => (
             <table key={index} className="document-table">
               <tbody>
                 <tr>
-                  <td>{elem.id}</td>
-                  <td>{elem.url}</td>
+                  <td>{doc.id}</td>
+                  <td>{doc.doc}</td>
                 </tr>
               </tbody>
             </table>

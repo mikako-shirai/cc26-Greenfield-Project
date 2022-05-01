@@ -1,10 +1,8 @@
 import React from "react";
 
-function Search({ params }) {
-  //THese params to look for
-  //This is a test
+function Search() {
   return (
-    <div>
+    <div className="searchbar">
       <form action="">
         <input type="text" />
         <button>Search</button>

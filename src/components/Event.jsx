@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 function Event() {
@@ -10,7 +9,7 @@ function Event() {
   const getAllEvents = async () => {
     const res = await axios.get("/events");
     const eventsAll = res.data;
-    setEvents(eventsAll);
+    setEvents(eventsAll.reverse());
   };
 
   const getEventById = async (e) => {
@@ -18,6 +17,7 @@ function Event() {
     const id = e.target.value;
     const res = await axios.get(`/events/view/${id}`);
     const selectedEvent = res.data;
+    setNewEvent({});
     setEvent(selectedEvent);
   };
 
@@ -29,6 +29,7 @@ function Event() {
     }
     await axios.post("/events/save", testEvent);
     await getAllEvents();
+    setEvent({});
     setNewEvent(testEvent);
   };
 
@@ -73,20 +74,30 @@ function Event() {
         <div onClick={addNewEvent} className="event-btn">Add New Event</div>
       </div>
 
-      {event.id ? <div className="event-content">
+      {event.id ? <div className="event-content event-selected">
         <div>Selected Event</div>
         <div>Event Name : {event.eventName}</div>
-        <div>Description : {event.description}</div>
         <div>Event Time : {event.dateTime.slice(0,10)}</div>
+        <div>Description : {event.description}</div>
       </div> : ""}
 
-      {newEvent.eventName ? <div className="event-content">
+      {newEvent.eventName ? <div className="event-content event-selected">
         <div>New Event</div>
         <div>Event Name : {newEvent.eventName}</div>
-        <div>Description : {newEvent.description}</div>
         <div>Event Time : {newEvent.dateTime.slice(0,10)}</div>
+        <div>Description : {newEvent.description}</div>
       </div> : ""}
 
+      {events.map((event, index) => {
+        return (
+          <div key={index} className="event-content">
+            <div>Event</div>
+            <div>Event Name : {event.eventName}</div>
+            <div>Event Time : {event.dateTime.slice(0,10)}</div>
+            <div>Description : {event.description}</div>
+          </div>
+        );
+      })}
     </div>
   );
 }

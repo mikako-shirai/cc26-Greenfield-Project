@@ -9,7 +9,7 @@ function Task({ date, setShowTask, setNewToDo }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const newToDo = {
-      task: task,
+      description: task,
       type: type,
       date: date.substring(0, 10),
       time: time,
@@ -51,7 +51,13 @@ function Task({ date, setShowTask, setNewToDo }) {
           />
 
           <button type="submit">Add</button>
-          <button onClick={() => { setShowTask(false); }}>Cancel</button>
+          <button
+            onClick={() => {
+              setShowTask(false);
+            }}
+          >
+            Cancel
+          </button>
         </form>
       </div>
     </div>

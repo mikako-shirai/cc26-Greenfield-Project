@@ -3,16 +3,18 @@ const cors = require("cors");
 const path = require("path");
 
 const PORT = process.env.PORT || 8080;
-const corsOptions = {
-  origin: process.env.DATABASE_URL
-    ? "https://cacoon-morphy.herokuapp.com/"
-    : `http://localhost:${PORT}/`,
-  optionsSuccessStatus: 200,
-};
+// const corsOptions = {
+//   origin: process.env.DATABASE_URL
+//     ? "https://cacoon-morphy.herokuapp.com/"
+//     : `http://localhost:${PORT}/`,
+//   optionsSuccessStatus: 200,
+// };
 
 const app = express();
 app.use(express.json());
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+app.use(cors());
+
 app.use(express.static(path.join(__dirname, "public")));
 
 const usersController = require("./users/users.controller");

@@ -1,4 +1,6 @@
-// Update with your config settings.
+require("dotenv").config({
+  path: "./.env",
+});
 
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
@@ -6,30 +8,29 @@
 module.exports = {
   development: {
     client: "pg",
-    connection: {
-      database: "cocoonmorpho",
-      user: "postgres",
-      password: null
+    connection: process.env.DATABASE_URL || {
+      database: process.env.DB_NAME,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
     },
     migrations: {
       directory: "./server/db/migrations",
     },
     seeds: { directory: "./server/db/seeds" },
-    
   },
 
-  staging: {
-    client: "pg",
-    connection: {
-      database: 'cocoonmorpho',
-      user: 'username',
-      password: 'password'
-    },
-    migrations: {
-      directory: "./server/db/migrations",
-    },
-    seeds: { directory: "./server/db/seeds" },
-  },
+  // staging: {
+  //   client: "pg",
+  //   connection: {
+  //     database: "cocoonmorpho",
+  //     user: "username",
+  //     password: "password",
+  //   },
+  //   migrations: {
+  //     directory: "./server/db/migrations",
+  //   },
+  //   seeds: { directory: "./server/db/seeds" },
+  // },
 
   production: {
     client: "pg",
@@ -40,5 +41,5 @@ module.exports = {
     migrations: {
       directory: "./server/db/migrations",
     },
-  }
+  },
 };

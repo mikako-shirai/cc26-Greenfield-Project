@@ -1,12 +1,14 @@
 const express = require("express");
-const cors = require('cors');
+const cors = require("cors");
 const path = require("path");
 
 const PORT = process.env.PORT || 8080;
 const corsOptions = {
-  origin: process.env.DATABASE_URL ? "https://cocoon-morpho.herokuapp.com/" : `http://localhost:${PORT}/`,
-  optionsSuccessStatus: 200
-}
+  origin: process.env.DATABASE_URL
+    ? "https://cocoon-morpho.herokuapp.com/"
+    : `http://localhost:${PORT}/`,
+  optionsSuccessStatus: 200,
+};
 
 const app = express();
 app.use(express.json());

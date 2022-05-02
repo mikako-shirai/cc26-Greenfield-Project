@@ -5,7 +5,7 @@ const path = require("path");
 const PORT = process.env.PORT || 8080;
 const corsOptions = {
   origin: process.env.DATABASE_URL
-    ? "https://cocoon-morpho.herokuapp.com/"
+    ? "https://cacoon-morphy.herokuapp.com/"
     : `http://localhost:${PORT}/`,
   optionsSuccessStatus: 200,
 };

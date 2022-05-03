@@ -6,7 +6,7 @@ function Document() {
   const [doc, setDoc] = useState({});
 
   const getAllDocs = async () => {
-    const res = await axios.get("/docs");
+    const res = await axios.get("http://localhost:8080/docs");
     const docsAll = res.data;
     setDocs(docsAll.reverse());
   };
@@ -14,7 +14,7 @@ function Document() {
   const getDocById = async (e) => {
     e.preventDefault();
     const id = e.target.value;
-    const res = await axios.get(`/docs/view/${id}`);
+    const res = await axios.get(`http://localhost:8080/docs/view/${id}`);
     const selectedDoc = res.data;
     setDoc(selectedDoc);
   };

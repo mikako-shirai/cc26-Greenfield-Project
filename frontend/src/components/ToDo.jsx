@@ -6,7 +6,7 @@ function ToDo() {
   const [todo, setTodo] = useState({});
 
   const getAllTodos = async () => {
-    const res = await axios.get("/tasks");
+    const res = await axios.get("http://localhost:8080/tasks");
     const todosAll = res.data;
     setTodos(todosAll.reverse());
   };
@@ -14,7 +14,7 @@ function ToDo() {
   const getTodoById = async (e) => {
     e.preventDefault();
     const id = e.target.value;
-    const res = await axios.get(`/tasks/view/${id}`);
+    const res = await axios.get(`http://localhost:8080/tasks/view/${id}`);
     const selectedTodo = res.data;
     setTodo(selectedTodo);
   };
@@ -35,25 +35,31 @@ function ToDo() {
         <select onChange={getTodoById} required>
           <option hidden>-- ToDo --</option>
           {todos.map((todo, index) => {
-            return <option key={index} value={todo.id}>{todo.taskName}</option>
+            return (
+              <option key={index} value={todo.id}>
+                {todo.taskName}
+              </option>
+            );
           })}
         </select>
         <button>Show To Do</button>
       </div>
 
-      {todo.id ?
+      {todo.id ? (
         <div className="todo-item todo-selected">
           <div className="item-title">{todo.taskName}</div>
-          <div>Due Time : {todo.dateTime.slice(0,10)}</div>
+          <div>Due Time : {todo.dateTime.slice(0, 10)}</div>
           <div>Description : {todo.taskInfo}</div>
         </div>
-      : ""}
+      ) : (
+        ""
+      )}
 
       <div className="todo-wrapper">
         {todos.map((todo, index) => (
           <div key={index} className="todo-item">
             <div className="item-title">{todo.taskName}</div>
-            <div>Due Time : {todo.dateTime.slice(0,10)}</div>
+            <div>Due Time : {todo.dateTime.slice(0, 10)}</div>
             <div>Description : {todo.taskInfo}</div>
           </div>
         ))}

@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Calendar from "react-calendar";
-
 import Task from "./Task.jsx";
-
-function CalendarComponent({ selectedDate, setSelectedDate, showTask, setShowTask,}) {
+const moment = require("moment");
+function CalendarComponent({
+  selectedDate,
+  setSelectedDate,
+  showTask,
+  setShowTask,
+  events,
+}) {
   const [newToDo, setNewToDo] = useState(false);
 
   const openWindowForDate = (date) => {
@@ -33,6 +38,16 @@ function CalendarComponent({ selectedDate, setSelectedDate, showTask, setShowTas
         }}
         minDetail={"decade"}
         showNeighboringMonth={false}
+        tileClassName={({ date }) => {
+          if (
+            events.find(
+              (x) =>
+                x.dateTime.slice(0, 10) === moment(date).format("YYYY-MM-DD")
+            )
+          ) {
+            return "hasTask";
+          }
+        }}
       />
     </div>
   );

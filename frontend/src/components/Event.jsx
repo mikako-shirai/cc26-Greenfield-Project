@@ -1,30 +1,20 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-function Event() {
-  const [events, setEvents] = useState([]);
+export default function Event({ events }) {
+  // const [events, setEvents] = useState([]);
   const [event, setEvent] = useState({});
-
-  const getAllEvents = async () => {
-    const res = await axios.get("/events");
-    const eventsAll = res.data;
-    setEvents(eventsAll.reverse());
-  };
 
   const getEventById = async (e) => {
     e.preventDefault();
     const id = e.target.value;
-    const res = await axios.get(`/events/view/${id}`);
+    const res = await axios.get(`http://localhost:8080/events/view/${id}`);
     const selectedEvent = res.data;
     setEvent(selectedEvent);
   };
 
   useEffect(() => {
-    getAllEvents();
-  }, []);
-
-  useEffect(() => {
-    console.log(event);
+    console.log(events);
   }, [events, event]);
 
   return (
@@ -53,23 +43,31 @@ function Event() {
         <select onChange={getEventById} required>
           <option hidden>-- Event --</option>
           {events.map((event, index) => {
-            return <option key={index} value={event.id}>{event.eventName}</option>
+            return (
+              <option key={index} value={event.id}>
+                {event.eventName}
+              </option>
+            );
           })}
         </select>
         <div className="event-btn-show">Show Event</div>
       </div>
 
-      {event.id ? <div className="event-content event-selected">
-        <div className="item-title">{event.eventName}</div>
-        <div>Event Time : {event.dateTime.slice(0,10)}</div>
-        <div>Description : {event.description}</div>
-      </div> : ""}
+      {event.id ? (
+        <div className="event-content event-selected">
+          <div className="item-title">{event.eventName}</div>
+          <div>Event Time : {event.dateTime.slice(0, 10)}</div>
+          <div>Description : {event.description}</div>
+        </div>
+      ) : (
+        ""
+      )}
 
       {events.map((event, index) => {
         return (
           <div key={index} className="event-content">
             <div className="item-title">{event.eventName}</div>
-            <div>Event Time : {event.dateTime.slice(0,10)}</div>
+            <div>Event Time : {event.dateTime.slice(0, 10)}</div>
             <div>Description : {event.description}</div>
           </div>
         );
@@ -77,5 +75,3 @@ function Event() {
     </div>
   );
 }
-
-export default Event;

@@ -1,0 +1,33 @@
+ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  font-family: "Otomanopee One", sans-serif;
+}
+.form {
+  display: block;
+  margin: 0 auto;
+}
+.submitButton {
+  background-color: rgb(248, 191, 3);
+  border-radius: 5px;
+  border-color: rgb(248, 191, 3);
+  font-family: "Otomanopee One", sans-serif;
+  padding: 10px;
+  display: block;
+  margin: 0 auto;
+}
+.submitButton:hover {
+  border: #f5b608 solid 1px;
+}
+
+.Weather {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.weatherInput {
+  padding: 9px 15px 9px 15px;
+  border-radius: 10px;
+}

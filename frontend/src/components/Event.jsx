@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function Event({ events }) {
-  // const [events, setEvents] = useState([]);
   const [event, setEvent] = useState({});
 
   const getEventById = async (e) => {

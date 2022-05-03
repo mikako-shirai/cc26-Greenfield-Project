@@ -31,11 +31,6 @@ body {
   margin-bottom: 6vh;
 }
 
-.hasTask {
-  background: rgb(235, 193, 193) !important;
-  color: rgb(17, 17, 17);
-  font-weight: bolder;
-}
 .react-calendar {
   display: flex;
   flex-direction: column;
@@ -342,6 +337,28 @@ li:active {
   margin-left: -0.3vw;
   border-radius: 0px 6px 6px 0px;
 }
+
+.event-backtocalender {
+  background: #dddddd;
+  padding: 5px;
+  border-width: 0px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.add-event {
+  margin-top: 10px;
+}
+.add-event button {
+  background: #dddddd;
+  padding: 5px;
+  border-width: 0px;
+  margin-left: 5px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ------------------------------------- Add event*/
 
 /* -------------------------------------- item */
 

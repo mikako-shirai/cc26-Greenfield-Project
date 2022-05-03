@@ -6,7 +6,6 @@ import Document from "./Document";
 import ToDo from "./ToDo";
 import Event from "./Event.jsx";
 import "../styles/index.css";
-
 function App() {
   const [selectedDate, setSelectedDate] = useState(null);
   const [showTask, setShowTask] = useState(false);

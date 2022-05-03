@@ -1,9 +1,14 @@
 import React from "react";
-
+import Weather from "./Weather.jsx";
 import Search from "./Searchbtn.jsx";
 import Logo from "../images/Morpho.png";
 
-function Navbar({ displayCalender, displayDocument, displayToDo, displayEvent }) {
+function Navbar({
+  displayCalender,
+  displayDocument,
+  displayToDo,
+  displayEvent,
+}) {
   return (
     <div className="navbar">
       <img src={Logo} alt="logo" className="logo" />
@@ -14,6 +19,7 @@ function Navbar({ displayCalender, displayDocument, displayToDo, displayEvent })
         <li onClick={displayToDo}>ToDo</li>
         <li onClick={displayEvent}>Events</li>
       </ul>
+      <Weather />
     </div>
   );
 }

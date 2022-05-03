@@ -24,6 +24,9 @@ body {
   margin-top: 5vh;
 }
 
+.hasTask {
+  background-color: rgb(248, 138, 157) !important;
+}
 /* -------------------------------------- Calendar */
 
 .calendar-title {

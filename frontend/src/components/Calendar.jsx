@@ -38,7 +38,7 @@ function CalendarComponent({
         }}
         minDetail={"decade"}
         showNeighboringMonth={false}
-        tileClassName={({ date }) => {
+        tileClassName={({ date, view }) => {
           if (
             events.find(
               (x) =>

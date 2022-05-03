@@ -9,9 +9,9 @@ ul {
   margin: 0 auto;
 }
 .submitButton {
-  background-color: rgb(248, 191, 3);
+  /* background-color: rgb(234, 231, 187); */
   border-radius: 5px;
-  border-color: rgb(248, 191, 3);
+  border-color: rgb(220, 212, 185);
   font-family: "Otomanopee One", sans-serif;
   padding: 10px;
   display: block;

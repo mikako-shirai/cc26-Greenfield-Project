@@ -34,7 +34,7 @@ export default function Weather() {
       <form onSubmit={handleSubmit}>
         <input
           type="search"
-          placeholder="see the weather"
+          placeholder="search the weather"
           onChange={showData}
           className="weatherInput"
         />

@@ -1,23 +1,70 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+
+import Navbar from "./Navbar.jsx";
+import CalendarComponent from "./Calendar.jsx";
+import Document from "./Document";
+import ToDo from "./ToDo";
+import Event from "./Event.jsx";
+import "../styles/index.css";
 
 function App() {
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [showTask, setShowTask] = useState(false);
+
+  const [showCalendarPage, setShowCalendarPage] = useState(true);
+  const [showDocumentPage, setShowDocumentPage] = useState(false);
+  const [showToDoPage, setShowToDoPage] = useState(false);
+  const [showEventPage, setShowEventPage] = useState(false);
+
+  const hideEverything = () => {
+    setShowCalendarPage(false);
+    setShowDocumentPage(false);
+    setShowToDoPage(false);
+    setShowEventPage(false);
+  };
+
+  const displayCalender = () => {
+    hideEverything();
+    setShowCalendarPage(true);
+  };
+  const displayDocument = () => {
+    hideEverything();
+    setShowDocumentPage(true);
+  };
+  const displayToDo = () => {
+    hideEverything();
+    setShowToDoPage(true);
+  };
+  const displayEvent = () => {
+    hideEverything();
+    setShowEventPage(true);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Navbar
+        displayCalender={displayCalender}
+        displayDocument={displayDocument}
+        displayToDo={displayToDo}
+        displayEvent={displayEvent}
+      />
+
+      <div className="content-wrapper">
+        {showCalendarPage && (
+          <CalendarComponent
+            selectedDate={selectedDate}
+            setSelectedDate={setSelectedDate}
+            showTask={showTask}
+            setShowTask={setShowTask}
+          />
+        )}
+
+        <div>
+          {showDocumentPage && <Document />}
+          {showToDoPage && <ToDo />}
+          {showEventPage && <Event />}
+        </div>
+      </div>
     </div>
   );
 }
